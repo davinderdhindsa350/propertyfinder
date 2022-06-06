@@ -1,0 +1,225 @@
+/*
+*
+* Backgrounds
+*/
+
+.context-dark {
+	@extend %context-dark;
+}
+
+%context-dark {
+	&,
+	#{headings()} {
+		color: $white;
+	}
+
+	hr {
+		border-top-color: rgba($white, .13);
+	}
+
+	// Logo
+	.brand {
+		.brand-logo-dark {
+			display: none;
+		}
+		.brand-logo-light {
+			display: block;
+		}
+	}
+
+	// Rights
+	.rights {
+		a {
+			color: inherit;
+		}
+	}
+
+	.big {
+		a:hover {
+			color: $primary-lighten;
+		}
+	}
+}
+
+%context-light {
+	color: $body-color;
+
+	#{headings()} {
+		color: $headings-color;
+	}
+
+	// Logo
+	.brand {
+		.brand-logo-dark {
+			display: block;
+		}
+		.brand-logo-light {
+			display: none;
+		}
+	}
+}
+
+/**
+* Light Backgrounds
+*/
+.bg-default {
+	@include bg-behaviour($body-bg);
+}
+
+.bg-gray-100 {
+	@include bg-behaviour($gray-100);
+}
+
+.bg-gray-200 {
+	@include bg-behaviour($gray-200);
+}
+
+/**
+* Dark Backgrounds
+*/
+.bg-gray-700 {
+	@extend %context-dark;
+	@include bg-behaviour($gray-700);
+}
+
+.bg-primary-dark {
+	@extend %context-dark;
+	@include bg-behaviour($primary-dark);
+}
+
+.bg-primary-lighten {
+	@extend %context-dark;
+	@include bg-behaviour(lighten($primary,10));
+}
+
+.bg-blue-15 {
+	@extend %context-dark;
+	@include bg-behaviour($blue-15);
+}
+
+/** 
+* Accent Backgrounds
+*/
+.bg-primary {
+	@extend %context-dark;
+	& + & {
+		padding-top: 0;
+	}
+}
+
+/**
+* Background Image
+*/
+.bg-image {
+
+}
+
+[class*='bg-'] {
+	background-size: cover;
+	background-position: center center;
+}
+
+//
+// Overlays
+//
+[class*='bg-overlay'] {
+	position: relative;
+	&::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		pointer-events: none;
+		z-index: 1;
+	}
+
+	> * {
+		position: relative;
+		z-index: 1;
+	}
+}
+
+.bg-overlay-1 {
+	&::before {
+		background: rgba(#2e435b, .54);
+	}
+}
+
+.bg-overlay-2 {
+	&::before {
+		background: rgba(#3c4a54, .93);
+	}
+}
+
+.bg-overlay-3 {
+	&::before {
+		background: rgba(#162f45, .43);
+	}
+}
+
+.bg-overlay-4 {
+	&::before {
+		background: rgba(#162f45, .84);
+	}
+}
+
+.bg-overlay-5 {
+	&::before {
+		background: rgba($primary-dark, .8);
+	}
+}
+
+.bg-overlay-6 {
+	&::before {
+		background: rgba(#485b78, .93);
+	}
+}
+
+.bg-overlay-7 {
+	&::before {
+		background: rgba($blue-3, .75);
+	}
+}
+
+.bg-overlay-gradient-1 {
+	&::before {
+		background: linear-gradient(to right, rgb(61, 72, 93) 0%, transparent 100%);
+		opacity: 0.522;
+	}
+}
+
+// Desktop only
+//
+html:not(.tablet):not(.mobile) {
+	.bg-fixed {
+		@include media-breakpoint-up(lg) {
+			background-attachment: fixed;
+		}
+	}
+}
+
+
+.bg-1 {
+	background: rgb(161,161,161);
+	background: linear-gradient(298deg, rgba(161,161,161,1) 0%, rgba(0,25,50,1) 100%);
+	padding-bottom: 10px;
+	
+	@include media-breakpoint-up(sm) {
+		padding-bottom: 20px;
+	}
+	
+	@include media-breakpoint-up(md) {
+		padding-bottom: 30px; 
+	}
+	
+	@include media-breakpoint-up(lg) {
+		padding-bottom: 50px; 
+	}
+	
+	@include media-breakpoint-up(xl) {
+		padding-bottom: 80px; 
+	} 
+}
+ 

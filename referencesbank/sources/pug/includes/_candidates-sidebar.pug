@@ -1,0 +1,92 @@
+.row.row-30
+	.col-md-4.col-lg-12
+		p.heading-8 Latest activity
+		hr
+		ul.list.list-xs
+			li: label.checkbox
+				input(name='activity-checkbox-1' value='checkbox-1' type='checkbox')
+				| Last Hour
+
+			li: label.checkbox
+				input(name='activity-checkbox-2' value='checkbox-2' type='checkbox')
+				| Last 24 hours
+
+			li: label.checkbox
+				input(name='activity-checkbox-3' value='checkbox-3' type='checkbox')
+				| Last 7 days
+
+			li: label.checkbox
+				input(name='activity-checkbox-4' value='checkbox-4' type='checkbox')
+				| Last 30 days
+
+	.col-md-4.col-lg-12
+		p.heading-8 Speciality
+		hr
+		.form-wrap.form-wrap-select.form-filled
+			// Select 2
+			select.form-input.select(name='speciality' data-minimum-results-for-search="Infinity" data-constraints='@Selected' data-placeholder='Select a speciality' data-dropdown-class='select2-dropdown-filled')
+				option(label='Select a speciality')
+				option(value='1') Web Design
+				option(value='2') Development
+				option(value='3') Marketing
+				option(value='4') Illustration
+
+		ul.list.list-xs
+			li
+				label.checkbox.checkbox_info
+					input(name='category-checkbox-1' value='checkbox-1' type='checkbox')
+					| Web Design
+					span.checkbox-meta 23
+
+			li
+				label.checkbox.checkbox_info
+					input(name='category-checkbox-2' value='checkbox-2' type='checkbox')
+					| Illustrator
+					span.checkbox-meta 47
+
+			li
+				label.checkbox.checkbox_info
+					input(name='category-checkbox-3' value='checkbox-3' type='checkbox')
+					| Art Director
+					span.checkbox-meta 67
+
+			li
+				label.checkbox.checkbox_info
+					input(name='category-checkbox-4' value='checkbox-4' type='checkbox')
+					| UX Design
+					span.checkbox-meta 35
+
+
+	.col-md-4.col-lg-12
+		p.heading-8 Filter by Salary
+		hr
+		ul.list.list-xs
+			li
+				label.checkbox.checkbox_info
+					input(name='salary-checkbox-1' value='checkbox-1' type='checkbox')
+					| $0 - $1000
+					span.checkbox-meta 100
+
+			li
+				label.checkbox.checkbox_info
+					input(name='salary-checkbox-2' value='checkbox-2' type='checkbox')
+					| $1000 - $5000
+					span.checkbox-meta 73
+
+			li
+				label.checkbox.checkbox_info
+					input(name='salary-checkbox-3' value='checkbox-3' type='checkbox')
+					| $5000 - $20000
+					span.checkbox-meta 55
+
+			li
+				label.checkbox.checkbox_info
+					input(name='salary-checkbox-4' value='checkbox-4' type='checkbox')
+					| $2000 - $50000
+					span.checkbox-meta 35
+
+			li
+				label.checkbox.checkbox_info
+					input(name='salary-checkbox-5' value='checkbox-5' type='checkbox')
+					| $50000+
+					span.checkbox-meta 15

@@ -1,0 +1,74 @@
+extends  ../_skeleton
+
+//- Includes
+include ../components/_ui-quote-classic
+
+block variables
+	- var activeCategory = 'pages'
+	- var pageName = 'Testimonials'
+
+block page 
+	// Page Header
+	include ../sections/_header-classic
+
+	+breadcrumbs({
+		category: activeCategory,
+		path: [pageName],
+		title: 'Testimonials',
+		img: 'bg-image-3'
+	}).breadcrumbs-custom-overlay-2
+
+	section.section.section-md.bg-gray-100
+		.container
+			.row.row-50
+				.col-md-6.col-lg-4
+					+quote-classic({
+						avatar: 'user-1-73x73',
+						name: 'John Salley',
+						position: 'Helicopter Pilot'
+					})
+						p Thanks to CareerVolt, I applied and instantly received an interview opportunity. Within a few days, I was hired. This was the easiest experience I have had with job searches.
+
+				.col-md-6.col-lg-4
+					+quote-classic({
+						avatar: 'user-2-73x73',
+						name: 'Jane Wilson',
+						position: 'Web Developer'
+					})
+						p I found a job as a Web Developer and applied through my iPhone with the CareerVolt app! Very easy to search for jobs and apply in one tap/click, which is great!
+
+				.col-md-6.col-lg-4
+					+quote-classic({
+						avatar: 'user-3-73x73',
+						name: 'Sam Smith',
+						position: 'Web Designer'
+					})
+						p After only 3 weeks of becoming a member at CareerVolt, I received 4 job offers, I am now utilizing my skills at a job in the Antelope Valley which is where I live.
+
+				.col-md-6.col-lg-4
+					+quote-classic({
+						avatar: 'user-4-73x73',
+						name: 'Ann Lee',
+						position: 'Pediatrician'
+					})
+						p After posting my resume within a couple of days I had possible employers contacting me. After several interviews I decided to accept a position located near my home.
+
+				.col-md-6.col-lg-4
+					+quote-classic({
+						avatar: 'user-5-73x73',
+						name: 'Sandy Williams',
+						position: 'Sales Manager'
+					})
+						p I got hired on with Retail Integrity thanks to this posting on CareerVolt! They put me right to work the next couple of days after completion of paperwork.
+
+				.col-md-6.col-lg-4
+					+quote-classic({
+						avatar: 'user-6-73x73',
+						name: 'Kevin Parker',
+						position: 'HR Manager'
+					})
+						p I found my new job on this website. Now I’m HR manager at international company. I think it would not be possible unless I turned to CareerVolt team of experts. Thank you!
+
+
+	// Page Footer
+	include ../sections/_footer-classic

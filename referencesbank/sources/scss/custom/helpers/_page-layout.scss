@@ -1,0 +1,132 @@
+/*
+* Page layout
+*/
+
+// Page
+.page {
+	position: relative;
+	overflow: hidden;
+	min-height: 100vh;
+	opacity: 0;
+
+	&.fadeIn { animation-timing-function: ease-out; }
+	&.fadeOut { animation-timing-function: ease-in; }
+
+	[data-x-mode] & {
+		opacity: 1;
+	}
+}
+
+.page-header {
+		
+	.rd-navbar {
+		position: relative;
+		z-index: $zindex-rd-navbar;
+	} 
+}
+
+// Page Header Classic
+.ph-classic-form {
+	position: relative;
+	z-index: 101; 
+	padding: 25px 20px;
+	border-radius: $border-radius;
+	background: $gray-100;
+	box-shadow: $shadow-area-2;
+
+	.select2-container--default .select2-selection--single,
+	.form-input {
+		border-color: transparent;
+	}
+}
+
+.ph-classic-main {
+	padding: 40px 0 50px;
+	.slick-slider-1 {
+		.carousel-parent {
+			display: none;
+		}
+	}
+}
+
+* + .ph-classic-form-outer { margin-top: 30px; }
+
+@include media-breakpoint-up(md) {
+	.ph-classic-main {
+		padding: 60px 0 80px;
+		.slick-slider-1 {
+			.carousel-parent {
+				display: block;
+				margin: -20px 0 -30px 0;
+			}
+		}
+	}
+	
+	.ph-classic-form {
+		padding: 40px 30px;
+	}
+
+	.page-header-classic + .ph-classic-form-outer {
+		margin-top: -80px;
+	}
+
+	* + .ph-classic-form-outer { margin-top: 0; }
+}
+
+@include media-breakpoint-up(lg) {	
+	.ph-classic-form {
+		.form-layout-search .form-wrap-select {
+			max-width: 240px;
+			min-width: 240px;
+		}
+	}
+}
+
+@include media-breakpoint-up(xl) {
+	.ph-classic-main {
+		padding: 60px 0 220px;
+
+		.slick-slider-1 {
+			.carousel-parent {
+				margin: -70px 0 -150px 0;
+			}
+		}
+	}
+	
+	.ph-classic-form {
+		padding: 70px 40px;
+	}
+
+	.page-header-classic + .ph-classic-form-outer {
+		margin-top: -140px;
+	}
+}
+
+// Boxed Layout 
+html.boxed {
+	body {
+		background: $page-boxed-background-color $page-boxed-background-image repeat fixed;
+	}
+
+	@media (min-width: $page-boxed-width + $grid-gutter-width) {
+		.page {
+			max-width: $page-boxed-width;
+			margin-left: auto;
+			margin-right: auto;
+			box-shadow: 0 0 23px 0 rgba(1, 1, 1, 0.1);
+		}
+
+		.rd-navbar-static {
+			max-width: $page-boxed-width;
+			margin-left: auto;
+			margin-right: auto;
+
+			&.rd-navbar--is-stuck {
+				max-width: $page-boxed-width;
+				width: 100%;
+				left: calc(50% - #{$page-boxed-width});
+				right: calc(50% - #{$page-boxed-width});
+			}
+		}
+	}
+}

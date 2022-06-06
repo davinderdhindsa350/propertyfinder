@@ -1,0 +1,14 @@
+mixin profile-minimal(obj)
+	// Profile Minimal
+	article.profile-minimal: .profile-minimal-inner
+		.profile-minimal-main-outer: .profile-minimal-main
+			+img(obj.img).profile-minimal-image
+			.profile-minimal-main-info 
+				h5.profile-minimal-name: a(href='#')=obj.name
+				p=obj.salary
+				p.profile-minimal-position=obj.position
+			
+		.profile-minimal-meta 
+			span.icon.mdi.mdi-map-marker
+			span=obj.location
+					

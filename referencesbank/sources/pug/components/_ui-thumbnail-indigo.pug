@@ -1,0 +1,5 @@
+mixin thumbnail-indigo(obj)
+	// Thumbnail Indigo
+	article.thumbnail-indigo&attributes(attributes)
+		a.thumbnail-indigo-figure(href=obj.link ? obj.link : genLink(obj.title) style='background-image: url(' + (obj.img ? obj.img : ('images/landing/' + obj.title.trim().replace( /\s/g, '-' ).replace( /[\(\)]/g, '' ).toLowerCase())) + '.jpg);')
+		h5.thumbnail-indigo-title: a(href=obj.link ? obj.link : genLink(obj.title))=obj.title

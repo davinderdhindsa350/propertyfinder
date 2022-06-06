@@ -1,0 +1,212 @@
+extends  ../_skeleton
+
+block variables
+	- var activeCategory = 'pages'
+	- var pageName = 'Typography'
+
+block page 
+	// Page Header
+	include ../sections/_header-classic
+
+	+breadcrumbs({
+		category: activeCategory,
+		path: [pageName],
+		img: 'bg-image-9'
+	}).breadcrumbs-custom-overlay-2
+
+	// Base typography 
+	section.section.section-sm.section-first
+		.container
+			.row.row-50.flex-lg-row-reverse
+				.col-xl-4
+					ul.list-sm(style='white-space: nowrap;')
+						li: h1 H1 Heading
+						li: h2 H2 Heading 
+						li: h3 H3 Heading   
+						li: h4 H4 Heading 
+						li: h5 H5 Heading
+						li: h6 H6 Heading 
+
+				.col-xl-8
+					ul.list-xl
+						li
+							h1 H1 Heading
+							p Welcome to our wonderful world. We sincerely hope that each and every user entering our website will find exactly what he/she is looking for. With advanced features of activating account and new login widgets, you will definitely have a great experience of using our web page.
+
+						li
+							h2 H2 Heading
+							p Welcome to our wonderful world. We sincerely hope that each and every user entering our website will find exactly what he/she is looking for. With advanced features of activating account and new login widgets, you will definitely have a great experience of using our web page.
+
+						li
+							h3 H3 Heading
+							p Welcome to our wonderful world. We sincerely hope that each and every user entering our website will find exactly what he/she is looking for. With advanced features of activating account and new login widgets, you will definitely have a great experience of using our web page.
+
+						li
+							h4 H4 Heading
+							p Welcome to our wonderful world. We sincerely hope that each and every user entering our website will find exactly what he/she is looking for. With advanced features of activating account and new login widgets, you will definitely have a great experience of using our web page.
+
+						li
+							h5 H5 Heading
+							p Welcome to our wonderful world. We sincerely hope that each and every user entering our website will find exactly what he/she is looking for. With advanced features of activating account and new login widgets, you will definitely have a great experience of using our web page.
+						li
+							h6 H6 Heading
+							p Welcome to our wonderful world. We sincerely hope that each and every user entering our website will find exactly what he/she is looking for. With advanced features of activating account and new login widgets, you will definitely have a great experience of using our web page.
+
+	// Blockquote
+	section.section.section-sm
+		.container
+			.row.row-50
+				.col-lg-10.col-xl-8
+					h4 Blockquote
+					// Quote Light
+					article.quote-light: .quote-light-inner
+						.quote-light-mark.quote-light-mark-left: +quote-mark-2
+						p Welcome to our wonderful world. We sincerely hope that here you will find what you are looking for.
+						.quote-light-mark.quote-light-mark-right: +quote-mark-2
+
+	// HTML Text Elements
+	section.section.section-sm
+		.container
+			.row
+				.col-lg-10.col-xl-8
+					h4 HTML Text Elements
+					p.text-block
+						span.text-bold Bold text
+						mark This is a highlighted text
+						span.text-strike This is a strickethrough text
+						span.text-underline This is an underlined text.
+						span Welcome to our wonderful world. We sincerely hope that each and every user entering our website will find exactly what he/she is looking for
+						a(href='#') Link
+						a(href='#').link-hover Hover link
+						a(href='#').link-active Press link
+						span With advanced features of activating account and new login widgets, you will definitely have a great experience of using our web page.
+						span.tooltip-custom(data-bs-toggle='tooltip' data-bs-placement='top' title='Tooltip') Tooltip
+
+	// Unordered List
+	section.section.section-sm
+		.container
+			.row.row-50
+				.col-xl-8
+					h4 Unordered List
+					p We specialize in a variety of services. Our aim is to deliver the top level of customer service based on your requests.
+					.row.row-30
+						.col-sm-6.col-md-4
+							ul.list-marked-2
+								li Consulting
+								li Customer Service
+								li Innovation
+								li Management
+								li Ethics
+
+						.col-sm-6.col-md-4
+							ul.list-marked
+								li Consulting
+								li Customer Service
+								li Innovation
+								li Management
+								li Ethics
+
+						.col-sm-6.col-md-4
+							ul.list-marked-1
+								li Consulting
+								li Customer Service
+								li Innovation
+								li Management
+								li Ethics
+					p We hope that with our services you will receive the most personalized help in purchasing any kind of products you are looking for.
+
+	// Ordered List
+	section.section.section-sm
+		.container
+			.row.row-50
+				.col-xl-8
+					h4 Ordered List
+					p We specialize in a variety of services. Our aim is to deliver the top level of customer service based on your requests.
+					ol.list-ordered
+						li Consulting
+						li Customer Service
+						li Innovation
+						li Management
+						li Ethics
+					p We hope that with our services you will receive the most personalized help in purchasing any kind of products you are looking for.
+
+	// Icon List
+	section.section.section-sm
+		.container
+			h4.text-center.text-sm-start Icon List
+			.row: .col-lg-10.col-xl-9
+				.row.row-30.list-progress
+					.col-sm-6.col-md-4: .lp-item
+						.lp-item-header
+							.icon.lp-item-icon.thin-icon-email-search
+							.lp-item-counter
+						h6.lp-item-title Browse Jobs
+						p Search, find and apply for jobs directly on your mobile device, PC, or laptop.
+
+					.col-sm-6.col-md-4: .lp-item
+						.lp-item-header
+							.icon.lp-item-icon.mercury-icon-target-2
+							.lp-item-counter
+						h6.lp-item-title Find Your Vacancy
+						p Manage all of the jobs you have applied to from a convenience secure dashboard
+
+					.col-sm-6.col-md-4: .lp-item
+						.lp-item-header
+							.icon.lp-item-icon.lp-item-icon-sm.mercury-icon-e-mail-o
+							.lp-item-counter
+						h6.lp-item-title Submit Resume
+						p Once you have found your matches, you can easily apply to the jobs that suit you best
+
+			.row.row-30
+				.col-sm-6.col-lg-4
+					// Box Line
+					article.box-line.box-line_corporate: .box-line-inner
+						.box-line-icon.icon.mercury-icon-touch
+						.box-line-divider
+						h5.box-line-title Responsive and Retina Ready
+
+				.col-sm-6.col-lg-4
+					// Box Line
+					article.box-line.box-line_corporate: .box-line-inner
+						.box-line-icon.icon.mercury-icon-news
+						.box-line-divider
+						h5.box-line-title Easy and Powerful Novi Builder
+
+				.col-sm-6.col-lg-4
+					// Box Line
+					article.box-line.box-line_corporate: .box-line-inner
+						.box-line-icon.icon.mercury-icon-chat
+						.box-line-divider
+						h5.box-line-title 24/7 Free Dedicated Support
+
+	// Centered Image
+	section.section.section-sm
+		.container
+			h4 Centered Image
+			.row
+				.col-lg-10.col-xl-8
+					figure.figure-light
+						+img('typography-1-770x485').img-centered
+						figcaption
+							p Reliable services from an award-winning company
+
+					p.text-gray-800 Welcome to our wonderful world. We sincerely hope that each and every user entering our website will find exactly what he/she is looking for. With advanced features of activating account and new login widgets, you will definitely have a great experience of using our web page.
+
+	// Left Image
+	section.section.section-sm
+		.container: .row: .col-lg-10.col-xl-8
+			h4 Left Image
+			.row.row-30
+				.col-md-6: +img('typography-1-770x485')
+				.col-md-6: p.text-gray-800 Welcome to our wonderful world. We sincerely hope that each and every user entering our website will find exactly what he/she is looking for. With advanced features of activating account and new login widgets, you will definitely have a great experience of using our web page.
+
+	// Right Image
+	section.section.section-sm.section-last
+		.container: .row: .col-lg-10.col-xl-8
+			h4 Right Image
+			.row.row-30.flex-md-row-reverse
+				.col-md-6: +img('typography-1-770x485')
+				.col-md-6: p.text-gray-800 Welcome to our wonderful world. We sincerely hope that each and every user entering our website will find exactly what he/she is looking for. With advanced features of activating account and new login widgets, you will definitely have a great experience of using our web page.
+
+	// Page Footer
+	include ../sections/_footer-classic

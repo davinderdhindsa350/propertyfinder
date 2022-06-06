@@ -1,0 +1,141 @@
+extends  ../_skeleton
+
+//- Includes
+include ../components/_ui-profile-classic
+include ../components/_ui-pagination
+	
+block variables
+	- var activeCategory = 'for-employers'
+	- var pageName = 'Candidates Grid'
+
+block page 
+	// Page Header
+	include ../sections/_header-classic
+
+	+breadcrumbs({
+		category: activeCategory,
+		path: [pageName],
+		img: 'bg-image-9'
+	}).breadcrumbs-custom-overlay-2
+
+
+	section.section.section-md
+		.container
+			include ../includes/_candidates-search
+					
+			.row.row-50.flex-lg-row-reverse
+				.col-lg-4.col-xl-3
+					.row.row-30
+						.col-md-4.col-lg-12
+							p.heading-8 Latest activity
+							hr
+							ul.list.list-xs
+								li: label.checkbox
+									input(name='activity-checkbox-1' value='checkbox-1' type='checkbox')
+									| Last Hour
+
+								li: label.checkbox
+									input(name='activity-checkbox-2' value='checkbox-2' type='checkbox')
+									| Last 24 hours
+
+								li: label.checkbox
+									input(name='activity-checkbox-3' value='checkbox-3' type='checkbox')
+									| Last 7 days
+
+								li: label.checkbox
+									input(name='activity-checkbox-4' value='checkbox-4' type='checkbox')
+									| Last 30 days 
+
+						.col-md-4.col-lg-12
+							p.heading-8 Speciality
+							hr
+							.form-wrap.form-wrap-select.form-filled
+								// Select 2
+								select.form-input.select(name='speciality' data-minimum-results-for-search="Infinity" data-constraints='@Selected' data-placeholder='Select a speciality' data-dropdown-class='select2-dropdown-filled')
+									option(label='Select a speciality')
+									option(value='1') Web Design
+									option(value='2') Development
+									option(value='3') Marketing
+									option(value='4') Illustration 
+
+							ul.list.list-xs
+								li
+									label.checkbox.checkbox_info
+										input(name='category-checkbox-1' value='checkbox-1' type='checkbox')
+										| Web Design
+										span.checkbox-meta 23
+
+								li
+									label.checkbox.checkbox_info
+										input(name='category-checkbox-2' value='checkbox-2' type='checkbox')
+										| Illustrator
+										span.checkbox-meta 47
+
+								li
+									label.checkbox.checkbox_info
+										input(name='category-checkbox-3' value='checkbox-3' type='checkbox')
+										| Art Director
+										span.checkbox-meta 67
+
+								li
+									label.checkbox.checkbox_info
+										input(name='category-checkbox-4' value='checkbox-4' type='checkbox')
+										| UX Design
+										span.checkbox-meta 35
+
+
+				.col-lg-8.col-xl-9
+					.row.row-40
+						.col-sm-6.col-md-4.col-lg-6.col-xl-4
+							+profile-classic({
+								img: 'candidates-grid-1-266x219',
+								name: 'Amanda Cook',
+								location: 'Los Angeles, California',
+								position: 'Junior Web Designer'
+							})
+							
+						.col-sm-6.col-md-4.col-lg-6.col-xl-4
+							+profile-classic({
+								img: 'candidates-grid-2-266x219',
+								name: 'Kevin Parker',
+								location: 'Seattle, Washington',
+								position: 'HR Manager'
+							})
+							
+						.col-sm-6.col-md-4.col-lg-6.col-xl-4
+							+profile-classic({
+								img: 'candidates-grid-3-266x219',
+								name: 'Sandy Williams',
+								location: 'Miami, Florida',
+								position: 'Sales Manager'
+							})
+							
+						.col-sm-6.col-md-4.col-lg-6.col-xl-4
+							+profile-classic({
+								img: 'candidates-grid-4-266x219',
+								name: 'James Johnson',
+								location: 'Boston, Massachusetts',
+								position: 'Programmer'
+							})
+							
+						.col-sm-6.col-md-4.col-lg-6.col-xl-4
+							+profile-classic({
+								img: 'candidates-grid-5-266x219',
+								name: 'Ann Lee',
+								location: 'Atlanta, Georgia',
+								position: 'Pediatrician'
+							})
+							
+						.col-sm-6.col-md-4.col-lg-6.col-xl-4
+							+profile-classic({
+								img: 'candidates-grid-6-266x219',
+								name: 'Sam Smith',
+								location: 'Chicago, Illinois',
+								position: 'Web Designer'
+							})
+					
+					
+					+pagination-bootstrap(3, 4).text-center
+					
+	// Page Footer
+	include ../sections/_footer-classic

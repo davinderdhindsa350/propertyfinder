@@ -1,0 +1,95 @@
+//- Image
+	@param {string} name
+mixin img( name, options )
+	-
+		var size = getImageSize(name);
+		if (options && options.retina) {
+			size[0] = ~~(size[0] / 2);
+			size[1] = ~~(size[1] / 2);
+		}
+	img( src= procImg(name), alt='', width= size[0], height= size[1], loading='lazy' )&attributes( attributes )
+
+
+//- Loop without indexing mixin
+	@param {number} iterations - number of iterations
+mixin loop(iterations)
+	- for (var i = 0; i < iterations; i++)
+		block
+
+
+//- Parallax Section
+	@param {object} obj - parameters storage
+	@param {string} obj.img - image path
+	@param {string} obj.innerClass - content wrapper class
+mixin parallax(obj)
+	section.section.parallax-container(data-parallax-img='images/' + obj.img + '.jpg')&attributes(attributes)
+		.parallax-content(class=obj.innerClass)
+			block
+
+//- Parallax Block
+	@param {object} obj - parameters storage
+	@param {string} obj.img - image path
+	@param {string} obj.innerClass - content wrapper class
+mixin parallax-block(obj)
+	.parallax-container(data-parallax-img='images/' + obj.img + '.jpg')&attributes(attributes)
+		.parallax-content(class=obj.innerClass)
+			block
+
+
+//- Breadcrumbs
+	@param {object} obj - parameters storage
+	@param {string} obj.category - required menu category
+	@param {string} obj.bgImage - section background image
+	@param {array}  obj.path - other navigation path
+mixin breadcrumbs(obj)
+	- var activeItemName = obj.path.pop();
+	- var category = getMenuCategory(obj.category);
+
+	if (typeof(obj.title) !== 'undefined')
+		- var title= obj.title;
+	else
+		- var title = activeItemName;
+
+	section.section.breadcrumbs-custom&attributes(attributes)
+		.breadcrumbs-custom-main.bg-image.bg-gray-700(style='background-image: url(images/' + obj.img + '.jpg);')
+			.container
+				h3.breadcrumbs-custom-title=title
+
+		.breadcrumbs-custom-aside
+			.container
+				ul.breadcrumbs-custom-path
+					li: a(href='index.html') Home
+					if (typeof(category) !== 'undefined' && (category.title !== activeItemName))
+						li: a(href=category.link ? category.link : genLink(category.title))= category.title
+						-for(var i = 0; i < obj.path.length; i++)
+							li: a(href=obj.path[i].link ? obj.path[i].link : genLink(obj.path[i].title))= obj.path[i].title
+
+					li.active=activeItemName
+
+
+//- Logo
+mixin logo
+	a.brand(href='index.html')&attributes(attributes)
+		+img(logo.default).brand-logo-dark
+		+img(logo.inverse).brand-logo-light
+
+
+//- Copyright
+mixin rights
+	p.rights&attributes(attributes)
+		span= logo.name
+		span &nbsp;&copy;&nbsp;
+		span.copyright-year
+		span &nbsp;
+		a(href='privacy-policy.html') Privacy Policy
+
+
+mixin quote-mark
+	svg(version='1.1', x='0px', y='0px', viewbox='0 0 36 28' width='38' height='28')&attributes(attributes)
+		path(d='M13,0l-2.4,13.3H15V28H0V13.1L4,0H13z M34,0l-2.4,13.3H36V28H20.9V13.1L25,0H34z')
+
+
+mixin quote-mark-2
+	svg(version='1.1', x='0px', y='0px', width='24', height='22', viewbox='0 0 24 22')&attributes(attributes)
+		path(d='M0,11.9C0,4,3.5,0,10.4,0v4c-2,0-3.4,0.5-4.2,1.5C5.4,6.5,5,8.1,5,10.2V13h5.3v9H1.1C0.4,18.2,0,14.8,0,11.9z\
+		M13.7,11.9C13.7,4,17.1,0,24,0v4c-2,0-3.3,0.5-4.1,1.5c-0.8,1-1.2,2.6-1.2,4.7V13h5.2v9h-9.2C14,18.6,13.7,15.2,13.7,11.9z')

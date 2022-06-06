@@ -1,0 +1,11 @@
+//
+// Grid-dedicated responsive offset system
+//
+
+@mixin grid-offset($offset) {
+	margin-bottom: -$offset;
+
+	> * {
+		margin-bottom: $offset;
+	}
+}

@@ -1,0 +1,191 @@
+extends  ../_skeleton
+
+//- Includes
+include ../components/_ui-post-classic
+include ../components/_ui-comment
+
+block variables
+	- var activeCategory = 'blog'
+	- var pageName = 'Blog post'
+
+block page 
+	// Page Header
+	include ../sections/_header-classic
+
+	+breadcrumbs({
+		category: activeCategory,
+		path: [pageName],
+		title: 'The Future of Work for Americans',
+		img: 'bg-image-10'
+	}).breadcrumbs-custom-overlay-1
+	
+	section.section.section-md
+		.container
+			.blog-layout
+				.blog-layout-main
+					article.post-creative
+						+img('blog-post-1-768x475').post-creative-image
+						.post-creative-meta: .post-creative-meta-inner
+							.post-creative-author
+								+img('user-1-36x36').post-creative-author-image
+								p 
+									| by&nbsp;
+									a(href='#') Barry Burns
+							div
+								ul.post-creative-meta-list
+									li 
+										span.icon.mdi.mdi-clock 
+										time(datetime='2021') March 15, 2021
+									li
+										span.icon.fl-justicons-visible6
+										span 3678 
+									li
+										span.icon.mdi.mdi-message-outline
+										span 3
+										
+						h5 How The Future of Work for Americans Will Look
+						p There’s no denying that the landscape of work is changing. More and more companies are adopting flexible work policies, recognizing the dramatic (and positive) impact that it has both for business and employees. But do you ever wonder what the future holds for the world of work? Let’s try to figure it out.
+						p It’s predicted that boomers and gen Xers will have second careers as they approach 50. These “encore” careers might be for philanthropic or financial reasons, but the even bigger assumption is that present employers will prepare these workers for their next careers by enriching their work with experiences and education. It is also anticipated that older Americans will take advantage of flexible work and look for part-time jobs, not full-time positions. They will represent the biggest segment of workers who take on contract jobs, freelance gigs, and alternate work assignments.
+						// Quote Light
+						.quote-light: .quote-light-inner
+							.quote-light-mark.quote-light-mark-left: +quote-mark-2
+							p There is no guarantee that full-time work will be required in the future rather than freelance.
+							.quote-light-mark.quote-light-mark-right: +quote-mark-2
+						p If you ask us, the future of work is fascinating! Not only the limits will be lifted on how old you can be to work, but also on where you work, how you work, and why you work! But until it happens you can always count on us if you plan to find a well-paid job according to your experience, skills, and knowledge.
+						.post-creative-footer: .post-creative-footer-inner
+							p Share this post
+							div
+								ul.list-inline.list-inline-xs
+									li: a.icon.icon-xxs.icon-filled.icon-filled-brand.icon-circle.fa.fa-facebook(href='#')
+									li: a.icon.icon-xxs.icon-filled.icon-filled-brand.icon-circle.fa.fa-google-plus(href='#')
+									li: a.icon.icon-xxs.icon-filled.icon-filled-brand.icon-circle.fa.fa-twitter(href='#')
+									li: a.icon.icon-xxs.icon-filled.icon-filled-brand.icon-circle.fa.fa-pinterest-p(href='#')
+									
+					.section-sm.section-first
+						p.blog-layout-title.text-center Recent Posts
+						.row.row-30
+							.col-sm-6
+								+post-classic({
+									img: 'blog-2-369x253',
+									title: 'How to Find a Business Development Job',
+									time: 'November 23, 2021'
+								})
+									p Business development professionals are at the heart of all sorts of organizations, from startups to
+									
+							.col-sm-6
+								+post-classic({
+									img: 'blog-3-369x253',
+									title: 'Searching for Job When You Have No Time',
+									time: 'November 23, 2021'
+								})
+									p You’re committed to your job search, and you use every ounce of your free time you have to comb
+									
+					.section-sm.section-bottom-0
+						p.blog-layout-title.text-center 3 comments
+						.comment-group
+							+comment({
+								img: 'user-2-65x65', 
+								title: 'Edward', 
+								time: "3 day ago",
+								text: "Thank you for this amazingly informative article! I have always been wondering how a skilled worker will use his/hers knowledge in the future. I think even when we get older as qualified workers, our skills will still be needed. I also hope you will tell us more about this topic in your next posts. In my opinion, it is a very interesting topic, which can be developed, and I hope I am not the only one who thinks so."
+							})
+
+							.comment-group
+								+comment({
+									img: 'user-3-51x51',
+									title: 'Nina',
+									time: "1 days ago",
+									text: "Of course, you are not! As for me, I’ve been looking for accurate predictions about labor-market for quite some time, and this post actually shares some pretty interesting information on the topic."
+								})
+
+						.comment-group
+							+comment({
+								img: 'user-4-65x65',
+								title: 'John',
+								time: "2 day ago",
+								text: "My company has always been your partner, almost since SmarTech’ establishment. I’m really surprised that you deliver not only perfectly working industrial solutions but also amazing products for home use (including solar panels). Probably it is the most important thing that diversifies your company from other manufacturers – you always think about your customers first, and not on the possible ways of gaining more profit. It’s impressive!"
+							})
+
+						// Comment
+						article.comment.comment-box
+							.comment-aside
+								+img('user-5-65x65').comment-image
+							.comment-header
+								p.comment-title Miranda
+
+							.comment-main
+								form.rd-mailform.rd-mailform-outline
+									.form-wrap
+										label.form-label(for="comment-message") Your comment
+										textarea#comment-message.form-input(name="message" data-constraints="@Required")
+
+									.from-wrap
+										button.btn.btn-primary.btn-anorak(type="submit") Submit
+						
+				.blog-layout-aside
+					.blog-layout-aside-item 
+						// RD Search
+						form.rd-form.rd-search.rd-search-classic.form-lg.form-filled(action='search-results.html' method='GET')
+							.form-wrap
+								input.form-input#rd-search-form-input(type='text' name='s' autocomplete='off')
+								label.form-label(for='rd-search-form-input') Search the blog...
+
+							button.rd-search-submit(type='submit')
+
+					.blog-layout-aside-item
+						p.blog-layout-title Category
+						ul.list-categories
+							li.active: a(href='#')  
+								span Jobs
+								span  12
+							li: a(href='#') 
+								span Resume
+								span 10
+							li: a(href='#') 
+								span Education
+								span 11 
+							li: a(href='#') 
+								span Skills
+								span 14
+
+					.blog-layout-aside-item
+						p.blog-layout-title Latest Posts
+						.post-light-group
+							// Post Light
+							a.post-light(href=links.post) 
+								.post-light-media
+									+img('post-light-1-106x104').post-light-image
+								.post-light-main
+									p.post-light-title Online Teaching: Theory and Basics
+									time.post-light-time(datetime='2021') March 15, 2021
+									
+							// Post Light
+							a.post-light(href=links.post)
+								.post-light-media
+									+img('post-light-2-106x104').post-light-image
+								.post-light-main
+									p.post-light-title Finding a Remote Editing Job to Satisfy Your  Needs
+									time.post-light-time(datetime='2021') March 15, 2021
+									
+							// Post Light
+							a.post-light(href=links.post)
+								.post-light-media
+									+img('post-light-3-106x104').post-light-image
+								.post-light-main
+									p.post-light-title Organize Your Workspace with These Tips
+									time.post-light-time(datetime='2021') March 15, 2021
+
+					.blog-layout-aside-item
+						p.blog-layout-title Newsletter
+						p Enter your e-mail to get the latest news. 
+						// Rd Mailform
+						form.rd-form.rd-mailform.form-centered(data-form-output='form-output-global' data-form-type='subscribe' method='post' action='bat/rd-mailform.php')
+							.form-wrap
+								input.form-input#subscribe-form-email(type='email' name='email' data-constraints='@Email @Required')
+								label.form-label(for='subscribe-form-email') Your e-mail address...
+							.form-button
+								button.btn.btn-block.btn-primary.btn-anorak(type='submit' aria-label='subscribe') Subscribe
+				
+						
+	// Page Footer
+	include ../sections/_footer-classic

@@ -1,0 +1,531 @@
+extends  ../_skeleton
+
+//- Includes
+include ../components/_ui-header-classic
+include ../components/_ui-quote-classic
+include ../components/_ui-post-modern
+
+block variables
+	- var activeCategory = 'home'
+	- var pageName = 'Job Portal 2'
+
+block page
+	// Page Header
+	header.section.page-header
+		+header-classic.rd-navbar-classic-light
+
+	section.section.jumbotron-classic.bg-primary-dark: .jumbotron-classic-inner
+		.jumbotron-classic-image-left: +img('custom-slide-left-423x629.png').wow.slideInLeft
+		.jumbotron-classic-image-right: +img('custom-slide-right-325x629.png').wow.slideInRight
+		.container
+			.jumbotron-classic-header
+				h2.fw-light Place Where Opportunities are Found
+
+			.jumbotron-classic-main
+				form.form-layout-search.form-lg
+					.form-wrap.form-wrap-icon
+						input#form-keywords.form-input(type='text' name='keywords' data-constraints='@Required')
+						label.form-label(for='form-keywords') Keywords
+						span.icon.fl-bigmug-line-search74
+
+					.form-wrap.form-wrap-icon.form-wrap-select
+						// Select 2
+						select.form-input.select#form-region( data-placeholder='All Regions' name='region' data-minimum-results-for-search='Infinity' data-constraints='@Selected')
+							option(label='All Regions')
+							option(value='1') Seattle
+							option(value='2') Miami
+							option(value='3') Chicago
+						span.icon.fl-bigmug-line-big104
+
+					.form-wrap.form-wrap-button.form-wrap-button-search-md-lg
+						button.btn.btn-lg.btn-primary(type='submit') Search
+
+	// Popular Categories
+	section.section.section-md.text-center
+		.container
+			h3 Popular Categories  
+			p More than 137 new jobs every day
+			.row.row-30
+				.col-md-4
+					ul.list-block
+						li: a(href='job-listing-full.html')
+							span.list-block-title Accounting & Finance
+							span.list-block-meta 2590
+						li: a(href='job-listing-full.html')
+							span.list-block-title Information Technology 
+							span.list-block-meta 3567
+						li: a(href='job-listing-full.html')
+							span.list-block-title Real Estate
+							span.list-block-meta 4235
+						li: a(href='job-listing-full.html')
+							span.list-block-title Motoring & Automotive
+							span.list-block-meta 234
+
+				.col-md-4
+					ul.list-block
+						li: a(href='job-listing-full.html')
+							span.list-block-title Construction
+							span.list-block-meta 1467
+						li: a(href='job-listing-full.html')
+							span.list-block-title Design & Art 
+							span.list-block-meta 890
+						li: a(href='job-listing-full.html')
+							span.list-block-title Sales & Marketing
+							span.list-block-meta 1214
+						li: a(href='job-listing-full.html')
+							span.list-block-title Other Jobs
+							span.list-block-meta 1235
+
+				.col-md-4
+					ul.list-block
+						li: a(href='job-listing-full.html')
+							span.list-block-title Healthcare
+							span.list-block-meta 1653
+						li: a(href='job-listing-full.html')
+							span.list-block-title Social Media
+							span.list-block-meta 453
+						li: a(href='job-listing-full.html')
+							span.list-block-title Food Service
+							span.list-block-meta 234
+						li: a(href='job-listing-full.html')
+							span.list-block-title Logistics
+							span.list-block-meta 234
+
+				.col-12
+					// Promo Search
+					article.promo-search
+						.promo-search-icon-outer: svg.promo-search-icon(x='0px', y='0px', width='20px', height='20.039px', viewBox='0 0 20 20.039' preserveAspectRatio='xMinYMid meet')
+							path(d='M20,19.355c0,0.169-0.065,0.318-0.195,0.449c-0.313,0.313-0.612,0.313-0.898,0l-5.195-5.078\
+							c-1.537,1.225-3.308,1.836-5.313,1.836c-2.318,0-4.297-0.807-5.938-2.422C0.82,12.526,0,10.573,0,8.281\
+							C0,5.99,0.82,4.037,2.461,2.422C4.102,0.808,6.087,0,8.418,0c2.33,0,4.316,0.808,5.957,2.422c1.641,1.615,2.461,3.568,2.461,5.859\
+							c0,2.109-0.729,3.959-2.188,5.547l5.156,5.078C19.935,19.036,20,19.186,20,19.355z M15.547,8.281c0-1.927-0.697-3.574-2.09-4.941\
+							c-1.394-1.367-3.073-2.051-5.039-2.051c-1.967,0-3.646,0.684-5.039,2.051c-1.394,1.367-2.09,3.015-2.09,4.941\
+							c0,1.928,0.696,3.574,2.09,4.941c1.393,1.367,3.072,2.051,5.039,2.051c1.966,0,3.646-0.684,5.039-2.051\
+							C14.85,11.855,15.547,10.209,15.547,8.281z')
+
+						.promo-search-main
+							h4.promo-search-title Browse more than 20 000 current vacancies
+							.promo-search-item
+								a.btn.btn-lg.btn-primary(href='job-listing-full.html') Browse all categories
+
+	// Hundreds of Jobs From All Over the Globe
+	section.section.section-md.bg-gray-100
+		.container
+			.row.row-40
+				.col-12.text-center
+					h3 Hundreds of Jobs From All Over the Globe
+				.col-12
+					.table-job-listing-2-outer: table.table-job-listing-2.table-responsive
+						tr
+							td.table-job-listing-2-main
+								// Company Minimal
+								article.company-minimal
+									figure.company-minimal-figure: +img('company-1-52x52.png').company-minimal-image
+									.company-minimal-main
+										h5.company-minimal-title: a(href='job-details.html') Senior UX Designer
+										p StarArt
+							td.table-job-listing-2-location
+								.object-inline
+									span.icon.icon-2.text-primary.mdi.mdi-map-marker
+									span New York, NY, USA
+
+							td.table-job-listing-2-badge
+								span.badge.badge-modern
+									span
+									| Full Time
+						tr
+							td.table-job-listing-2-main
+								// Company Minimal
+								article.company-minimal
+									figure.company-minimal-figure: +img('company-2-53x46.png').company-minimal-image
+									.company-minimal-main
+										h5.company-minimal-title: a(href='job-details.html') Marketing Director
+										p UpBook
+							td.table-job-listing-2-location
+								.object-inline
+									span.icon.icon-2.text-primary.mdi.mdi-map-marker
+									span Saint-Etienne, France
+
+							td.table-job-listing-2-badge
+								span.badge.badge-secondary.badge-modern
+									span
+									| Part Time
+
+						tr
+							td.table-job-listing-2-main
+								// Company Minimal
+								article.company-minimal
+									figure.company-minimal-figure: +img('company-3-42x42.png').company-minimal-image
+									.company-minimal-main
+										h5.company-minimal-title: a(href='job-details.html') Front End Developer
+										p MediaLab
+							td.table-job-listing-2-location
+								.object-inline
+									span.icon.icon-2.text-primary.mdi.mdi-map-marker
+									span Derry, United Kingdom
+
+							td.table-job-listing-2-badge
+								span.badge.badge-tertiary.badge-modern
+									span
+									| Freelance
+
+						tr
+							td.table-job-listing-2-main
+								// Company Minimal
+								article.company-minimal
+									figure.company-minimal-figure: +img('company-4-40x43.png').company-minimal-image
+									.company-minimal-main
+										h5.company-minimal-title: a(href='job-details.html') Social Media Executive
+										p Creator
+							td.table-job-listing-2-location
+								.object-inline
+									span.icon.icon-2.text-primary.mdi.mdi-map-marker
+									span Los Angeles, CA, USA
+
+							td.table-job-listing-2-badge
+								span.badge.badge-modern
+									span
+									| Full Time
+
+						tr
+							td.table-job-listing-2-main
+								// Company Minimal
+								article.company-minimal
+									figure.company-minimal-figure: +img('company-5-52x52.png').company-minimal-image
+									.company-minimal-main
+										h5.company-minimal-title: a(href='job-details.html') Restaurant Dishwasher
+										p Camping
+							td.table-job-listing-2-location
+								.object-inline
+									span.icon.icon-2.text-primary.mdi.mdi-map-marker
+									span Stockholm, Sweden
+
+							td.table-job-listing-2-badge
+								span.badge.badge-secondary.badge-modern
+									span
+									| Part Time
+
+				.col-12.text-center
+					a.btn.btn-lg.btn-primary.btn-anorak(href='job-listing-full.html') Show More Jobs
+
+
+	// New Candidates
+	section.section.section-md.text-center
+		.container
+			h3.text-center New Candidates
+			.owl-carousel.owl-carousel-profile(
+			data-autoplay='true'
+			data-autoplay-timeout='4000'
+			data-items='1'
+			data-sm-items='2'
+			data-lg-items='3'
+			data-dots='true'
+			data-dots-each='2'
+			data-nav='false'
+			data-stage-padding='0'
+			data-loop='true'
+			data-margin='30'
+			data-mouse-drag='false')
+				a.profile-modern(href='resume-page.html')
+					.profile-modern-media
+						+img('home-2-profile-1-367x271').profile-modern-image
+					.profile-modern-main
+						h5.profile-modern-title Amanda Cook
+						ul.profile-modern-meta
+							li
+								span.icon.icon-1.mdi.mdi-map-marker
+								span Los Angeles, California
+							li
+								span.icon.icon-sm.mdi.mdi-account
+								span Junior Web Designer
+						hr
+						p Designed original works through Adobe Photoshop and Illustrator to create clients’ desired visions.
+
+				a.profile-modern(href='resume-page.html')
+					.profile-modern-media
+						+img('home-2-profile-2-367x271').profile-modern-image
+					.profile-modern-main
+						h5.profile-modern-title Kevin Parker
+						ul.profile-modern-meta
+							li
+								span.icon.icon-1.mdi.mdi-map-marker
+								span Seattle, Washington
+							li
+								span.icon.icon-sm.mdi.mdi-account
+								span HR Manager
+						hr
+						p Worked with clients fulfilling their Human Resource needs: Employee relation issues, recruitment, compliance.
+
+				a.profile-modern(href='resume-page.html')
+					.profile-modern-media
+						+img('home-2-profile-3-367x271').profile-modern-image
+					.profile-modern-main
+						h5.profile-modern-title Sandy Williams
+						ul.profile-modern-meta
+							li
+								span.icon.icon-1.mdi.mdi-map-marker
+								span Miami, Florida
+							li
+								span.icon.icon-sm.mdi.mdi-account
+								span Sales Manager
+						hr
+						p Participated in all sales functions, company meeting and sales team training; Traveled on a daily to new stores.
+
+
+
+	// Counters
+	+parallax({
+		img: 'parallax-1-1920x780'
+	}).section-md.bg-gray-700.bg-overlay-5.text-center
+		.container
+			.row.row-50
+				.col-sm-6.col-md-3
+					// Counter Modern
+					article.counter-modern.flex-md-column.flex-lg-row
+						.icon.counter-modern-icon.fl-bigmug-line-copy23
+						.counter-modern-body
+							.counter-modern-main
+								.counter 136
+							h6.counter-modern-title Jobs Every Day
+
+				.col-sm-6.col-md-3
+					// Counter Modern
+					article.counter-modern.flex-md-column.flex-lg-row
+						.icon.counter-modern-icon.fl-bigmug-line-user143
+						.counter-modern-body
+							.counter-modern-main
+								.counter 50
+								span k
+							h6.counter-modern-title Current Resumes
+
+				.col-sm-6.col-md-3
+					// Counter Modern 
+					article.counter-modern.flex-md-column.flex-lg-row
+						.icon.counter-modern-icon.fl-bigmug-line-portfolio23
+						.counter-modern-body
+							.counter-modern-main
+								.counter 764
+							h6.counter-modern-title Companies
+
+				.col-sm-6.col-md-3
+					// Counter Modern
+					article.counter-modern.flex-md-column.flex-lg-row
+						.icon.counter-modern-icon.fl-bigmug-line-clipboard68
+						.counter-modern-body
+							.counter-modern-main
+								span 9.5k
+							h6.counter-modern-title Registered Vacancies
+
+	// Welcome to CareerVolt
+	section.section.section-md.bg-gray-100
+		.container
+			.row.row-30
+				.col-lg-6.height-fill
+					figure.figure-responsive
+						+img('about-us-1-573x368')
+
+				.col-lg-6.height-fill
+					article.box-info-2
+						h3 Welcome to CareerVolt
+						p.text-color-default We are the leading job search portal on the Web.
+						ul.list-marked-2
+							li Only relevant and verified vacancies 24/7
+							li Leading online recruiting in the USA and Europe
+							li More than 3.8 million visitors every day
+
+			.row.row-30.list-progress
+				.col-sm-6.col-md-12.col-xl-3.height-fill.align-items-center
+					article.box-info-3
+						h3.box-info-3-title
+							span.box-info-3-title-text How #[br.d-none.d-sm-block.d-md-none.d-xl-block] It Works
+							span.box-info-3-title-divider
+						p Get a digital tour of how CareerVolt works for you.
+
+				.col-sm-6.col-md-4.col-xl-3: .lp-item
+					.lp-item-header
+						.icon.lp-item-icon.thin-icon-email-search
+						.lp-item-counter
+					h6.lp-item-title Browse Jobs
+					p Search, find and apply for jobs directly on your mobile device, PC, or laptop.
+
+				.col-sm-6.col-md-4.col-xl-3: .lp-item
+					.lp-item-header
+						.icon.lp-item-icon.mercury-icon-target-2
+						.lp-item-counter
+					h6.lp-item-title Find Your Vacancy
+					p Manage all of the jobs you have applied to from a convenience secure dashboard
+
+				.col-sm-6.col-md-4.col-xl-3: .lp-item
+					.lp-item-header
+						.icon.lp-item-icon.lp-item-icon-sm.mercury-icon-e-mail-o
+						.lp-item-counter
+					h6.lp-item-title Submit Resume
+					p Once you have found your matches, you can easily apply to the jobs that suit you best
+
+
+	section.section.section-md.text-center
+		.container
+			h3 Success Stories
+			// Slick Carousel
+			.slick-slider-2
+				.slick-slider.carousel-parent#parent-carousel(
+				data-autoplay='true'
+				data-autoplay-speed='4000'
+				data-fade='true'
+				data-arrows='true'
+				data-loop='true'
+				data-dots='false'
+				data-swipe='true'
+				data-items='1'
+				data-child='#child-carousel'
+				data-for='#child-carousel')
+					.item
+						.slick-2-item
+							.slick-2-item-main
+								// Quote Modern
+								blockquote.quote-modern
+									.quote-modern-header
+										h5.quote-modern-cite John Salley
+										span.badge Helicopter Pilot
+									.quote-modern-text
+										+quote-mark.quote-modern-mark
+										p Thanks to CareerVolt, I applied and instantly received an interview opportunity. Within a few days, I was hired. This was the easiest experience.
+							.slick-2-item-figure: +img('slick-2-testimonials-1-371x328')
+
+					.item
+						.slick-2-item
+							.slick-2-item-main
+								// Quote Modern
+								blockquote.quote-modern
+									.quote-modern-header
+										h5.quote-modern-cite Jane Wilson
+										span.badge Web developer
+									.quote-modern-text
+										+quote-mark.quote-modern-mark
+										p I found a job as a Web Developer and applied through my iPhone with the CareerVolt app! It’s very easy to search for jobs and apply in one tap/click.
+							.slick-2-item-figure: +img('slick-2-testimonials-2-371x328')
+
+					.item
+						.slick-2-item
+							.slick-2-item-main
+								// Quote Modern
+								blockquote.quote-modern
+									.quote-modern-header
+										h5.quote-modern-cite Bill Smith
+										span.badge Web Designer
+									.quote-modern-text
+										+quote-mark.quote-modern-mark
+										p After only 3 weeks of becoming a member at CareerVolt, I received 4 job offers, I am now utilizing my skills at a job in the Antelope Valley.
+							.slick-2-item-figure: +img('slick-2-testimonials-3-371x328')
+
+					.item
+						.slick-2-item
+							.slick-2-item-main
+								// Quote Modern
+								blockquote.quote-modern
+									.quote-modern-header
+										h5.quote-modern-cite Ann Lee
+										span.badge Pediatrician
+									.quote-modern-text
+										+quote-mark.quote-modern-mark
+										p After posting my resume within a couple of days I had possible employers contacting me. After several interviews I decided to accept a position located nearby.
+							.slick-2-item-figure: +img('slick-2-testimonials-4-371x328')
+
+					.item
+						.slick-2-item
+							.slick-2-item-main
+								// Quote Modern
+								blockquote.quote-modern
+									.quote-modern-header
+										h5.quote-modern-cite Will Hanson
+										span.badge Taxi driver
+									.quote-modern-text
+										+quote-mark.quote-modern-mark
+										p After months of flooding my resume and CV out on the internet, applying here and other places, I finally found a job that fit my requirements.
+							.slick-2-item-figure: +img('slick-2-testimonials-5-371x328')
+
+
+				.slick-slider.carousel-child#child-carousel(
+				data-for='#parent-carousel'
+				data-loop='false'
+				data-arrows='false'
+				data-dots='false'
+				data-swipe='true'
+				data-items='3'
+				data-sm-items='4'
+				data-md-items='5'
+				data-lg-items='5'
+				data-xl-items='5'
+				data-slide-to-scroll='1')
+					.item: .slick-slide-inner: .slick-slide-figure: +img('slick-2-testimonials-1-73x73')
+					.item: .slick-slide-inner: .slick-slide-figure: +img('slick-2-testimonials-2-73x73')
+					.item: .slick-slide-inner: .slick-slide-figure: +img('slick-2-testimonials-3-73x73')
+					.item: .slick-slide-inner: .slick-slide-figure: +img('slick-2-testimonials-4-73x73')
+					.item: .slick-slide-inner: .slick-slide-figure: +img('slick-2-testimonials-5-73x73')
+
+	// Pricing
+	+parallax({
+		img: 'parallax-2'
+	}).section-md.bg-gray-700.bg-overlay-5
+		.container
+			h3.text-center Pricing
+			include ../includes/_pricing-table-creative
+
+	// Companies We've Helped
+	section.section.section-md.text-center
+		.container
+			h3.text-center Companies We've Helped
+			.grid-1-outer: .grid-1
+				.grid-1-item: a.grid-1-item-link(href='#'): +img('brand-1-183x44.png')
+				.grid-1-item: a.grid-1-item-link(href='#'): +img('brand-2-118x82.png')
+				.grid-1-item: a.grid-1-item-link(href='#'): +img('brand-3-137x39.png')
+				.grid-1-item: a.grid-1-item-link(href='#'): +img('brand-4-133x77.png')
+
+				.grid-1-item: a.grid-1-item-link(href='#'): +img('brand-5-153x30.png')
+				.grid-1-item: a.grid-1-item-link(href='#'): +img('brand-6-100x78.png')
+				.grid-1-item: a.grid-1-item-link(href='#'): +img('brand-7-112x43.png')
+				.grid-1-item: a.grid-1-item-link(href='#'): +img('brand-13-154x32.png')
+
+				.grid-1-item: a.grid-1-item-link(href='#'): +img('brand-9-159x33.png')
+				.grid-1-item: a.grid-1-item-link(href='#'): +img('brand-10-137x37.png')
+				.grid-1-item: a.grid-1-item-link(href='#'): +img('brand-11-84x59.png')
+				.grid-1-item: a.grid-1-item-link(href='#'): +img('brand-12-116x51.png')
+
+	section.section.section-md.bg-gray-100
+		.container
+			h3.text-center Latest Posts
+			.row.row-30.row-xl-70
+				.col-12.col-lg-4
+					+post-modern({
+						img: 'blog-1-369x253',
+						title: 'The Future of Work for Americans',
+						time: 'Nov 23, 2021'
+					})
+
+				.col-12.col-lg-4
+					+post-modern({
+						img: 'blog-2-369x253',
+						title: 'How to Find a Business Development Job',
+						time: 'Nov 23, 2021'
+					})
+
+				.col-12.col-lg-4
+					+post-modern({
+						img: 'blog-3-369x253',
+						title: 'Searching for Job When You Have No Time',
+						time: 'Nov 23, 2021'
+					})
+
+
+	// Subscribe Parallax
+	+parallax({
+		img: 'parallax-3'
+	}).section-md.bg-gray-700.bg-overlay-5.text-center
+		.container
+			h3 Got a Question?
+			p.big: span.block-4 We're here to help. Check out our FAQs, send us an email or call us at #[a(href='callto:#') 1 (800) 555-5555]
+			.divider-1
+			a.btn.btn-lg.btn-primary.btn-anorak.btn-shadow-1(href='contact-us.html') Contact Us
+
+	// Page Footer
+	include ../sections/_footer-modern

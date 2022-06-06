@@ -1,0 +1,35 @@
+extends  ../_skeleton
+//- Includes
+include ../components/_ui-countdown
+
+block variables
+	- var activeCategory = 'pages'
+	- var pageName = 'Maintenance'
+
+block page 
+	// Page content
+	section.section.section-single.bg-gray-700.bg-overlay-1(style='background-image: url(images/bg-image-7.jpg);')
+		.section-single-inner
+			.section-single-header: .container
+				// Brand
+				a.brand(href='index.html')
+					+img(logo.inverse)
+
+			.section-single-main: .container
+				h5 We are currently working on
+				h2 This page will appear in
+
+				+countdown({ to: '2022-09-09' })
+
+				h5 Stay tuned and subscribe to our newsletter
+
+				.rd-mailform-wrap
+					form.rd-mailform.form-light.form-inline(data-form-output='form-output-global' data-form-type='subscribe' method='post' action='bat/rd-mailform.php')
+						.form-wrap
+							input.form-input#subscribe-form-email(type='email' name='email' data-constraints='@Email @Required')
+							label.form-label(for='subscribe-form-email') E-mail
+						.form-button
+							button.btn.btn-primary(type='submit') Subscribe
+
+			.section-single-footer: .container
+				+rights

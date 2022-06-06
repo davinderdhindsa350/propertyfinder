@@ -1,0 +1,48 @@
+footer.section.footer-modern.context-dark
+	.footer-modern-main
+		.container
+			.row.row-50.justify-content-lg-between
+				.col-lg-5
+					p.footer-modern-title About Us
+					.footer-modern-divider
+					p.text-width-small CareerVolt is the leading job search on the Web that offers more than 2000 vacancies weekly.
+					// RD Mailform
+					form.rd-form.rd-mailform.form-style-1.form-inline.form-inline_condensed(data-form-output='form-output-global' data-form-type='subscribe' method='post' action='bat/rd-mailform.php')
+						.form-wrap
+							input.form-input#footer-subscribe-form-email(type='email' name='email' data-constraints='@Email @Required')
+							label.form-label.d-none.d-sm-block(for='footer-subscribe-form-email') Enter your e-mail to get the latest news
+							label.form-label.d-sm-none(for='footer-subscribe-form-email') Enter your e-mail...
+						.form-button
+							button.btn.btn-blue-9.btn-form-indicator.btn-icon-only(type='submit' aria-label='subscribe')
+								span.icon.form-icon-default.icon-3.fl-bigmug-line-paper122
+								span.icon.form-icon-success.icon-3.mdi.mdi-check
+
+				.col-sm-6.col-lg-3
+					p.footer-modern-title For Candidates
+					.footer-modern-divider
+					ul.list-marked-1
+						li: a(href='job-listing-full.html') Browse Jobs
+						li: a(href='job-listing.html') Browse Categories
+						li: a(href='submit-resume.html') Submit Resume
+						li: a(href='companies.html') Companies
+
+				.col-sm-6.col-lg-3
+					p.footer-modern-title For Employers
+					.footer-modern-divider
+					ul.list-marked-1
+						li: a(href='post-a-job.html') Post a Job
+						li: a(href='candidates-grid.html') Find a Candidate
+						li: a(href='pricing-tables.html') Pricing Table
+						li: a(href='faq.html') FAQ
+
+	.footer-modern-aside
+		.container: .footer-modern-aside-inner
+			.footer-modern-aside-item
+				+rights
+				
+			.footer-modern-aside-item
+				ul.list-inline.list-inline-sm
+					li: a.icon.icon-xs.fa.fa-facebook(href='#')
+					li: a.icon.icon-xs.fa.fa-twitter(href='#')
+					li: a.icon.icon-xs.fa.fa-google-plus(href='#')
+					li: a.icon.icon-xs.fa.fa-pinterest-p(href='#')

@@ -1,0 +1,85 @@
+extends  ../_skeleton
+
+//- Includes
+
+block variables
+	- var activeCategory = 'for-candidates'
+	- var pageName = 'Companies Page'
+
+block page 
+	// Page Header
+	include ../sections/_header-classic
+
+	
+	+parallax({
+		img: 'bg-image-13' 
+	}).section-lg.bg-overlay-3
+		.container
+			.placeholder-1
+
+	section.section.section-md
+		.container
+			.row.row-50
+				.col-lg-8
+					.layout-info
+						.layout-info-main
+							article.company-light
+								figure.company-light-logo: +img('company-1-52x52.png').company-light-logo-image
+								.company-light-main
+									h5.company-light-title StarArt
+									p Marketing Agency
+									p.object-inline.object-inline_sm
+										span.icon.icon-1.mdi.mdi-file-document.text-primary
+										span 3 Open Vacancies
+
+						.layout-info-aside
+							.layout-info-aside-item
+								ul.list-inline.list-inline-xs
+									li: a.icon.icon-xxs.icon-filled.icon-filled-brand.icon-circle.fa.fa-facebook(href='#')
+									li: a.icon.icon-xxs.icon-filled.icon-filled-brand.icon-circle.fa.fa-google-plus(href='#')
+									li: a.icon.icon-xxs.icon-filled.icon-filled-brand.icon-circle.fa.fa-twitter(href='#')
+									li: a.icon.icon-xxs.icon-filled.icon-filled-brand.icon-circle.fa.fa-pinterest-p(href='#')
+							.layout-info-aside-item: a.link(href='mailto:#') www.demolink.org
+
+					h4.heading-decorated_1 About Company
+					p.text-style-1 With a decade of experience in media buying and campaign optimization, StarArt delivers cutting edge programmatic audience buying at scale across digital and traditional media. We increase return on ad spend through web, mobile, video, search, broadcast, out-of-home, and social channels.
+					p.text-style-1 Online, we leverage targeting options and brand protection technology to engage specific audiences while keeping your brand safe. Our reporting makes sense of complex data and provides you with transparency. Data powers optimization. Optimization ensures your media dollars achieve more. We take great responsibility with the investments our clients make when they trust us to advance their causes, grow their businesses and push the ball forward on their behalf. We specialize in:
+					ul.list-marked-2.inset-left-1
+						li Online Marketing
+						li Social Marketing
+						li Web Development
+					p.text-style-1 We constantly strive to achieve outstanding results for every campaign. Our passion and drive fuel our determined approach to analysis and ongoing optimization. We work with every client as an invaluable partner on the front end to ensure we’re set up for success, then put in the legwork to achieve it. It is reflected in requirements to our vacancies.
+
+					h4.heading-decorated_1 Open Vacancies
+					table.table-job-listing.table-job-listing_lg.table-responsive
+						tr
+							td.table-job-listing-main
+								article.company-minimal
+									.company-minimal-main
+										h5: a(href='job-details.html') Senior UX Designer
+										p StarArt, New York
+							td.table-job-listing-badge: span.badge Full Time
+
+						tr
+							td.table-job-listing-main
+								article.company-minimal
+									.company-minimal-main
+										h5: a(href='job-details.html') Marketing Director
+										p StarArt, Tokyo
+							td.table-job-listing-badge: span.badge.badge-secondary Part Time
+
+						tr
+							td.table-job-listing-main
+								article.company-minimal
+									.company-minimal-main
+										h5: a(href='job-details.html') Website Designer
+										p StarArt, Paris
+							td.table-job-listing-badge: span.badge.badge-tertiary Freelance
+
+
+				.col-lg-4
+					include ../includes/_contacts-sidebar
+											
+								
+	// Page Footer
+	include ../sections/_footer-classic

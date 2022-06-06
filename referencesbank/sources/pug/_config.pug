@@ -1,0 +1,104 @@
+-
+	var
+		liveDemo = true,
+		htmlClass = "wide wow-animation",
+		fonts = "https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700&family=Open+Sans&display=swap",
+		subscribeFormCounter = 0,
+		logo = {
+			name: 'CareerVolt',
+			default:  'logo-default-145x32.svg',
+			inverse:  'logo-inverse-145x32.svg',
+		},
+		links = {
+			post: 'blog-post.html',
+			getTemplate: '#get-template'
+		},
+		colors = {
+			primary: '#52be71',
+			secondary: '#eba16a',
+			tertiary: '#76a7d4',
+			red: '#eb6a6a'
+		},
+		menu = [
+			{
+				title: 'Home',
+				category: 'home',
+				link: 'index.html',
+				dropdown: [
+					{ title: 'Home 2', link:'job-portal-2.html' },
+					{ title: 'Home 3', link:'job-portal-3.html' }
+				]
+			},
+			{
+				title: 'For Candidates',
+				category: 'for-candidates',
+				link: '#',
+				dropdown: [
+					{ title: 'Job Listing' },
+					{ title: 'Job Listing Full' },
+					{ title: 'Companies' },
+					{ title: 'Companies Page' },
+					{ title: 'Job Details' },
+					{ title: 'Submit Resume' }
+				]
+			},
+			{
+				title: 'For Employers',
+				category: 'for-employers',
+				link: '#',
+				dropdown: [
+					{ title: 'Post a Job' },
+					{ title: 'Candidates' },
+					{ title: 'Candidates Grid' },
+					{ title: 'Resume Page' }
+				]
+			},
+			{
+				title: 'Pages',
+				category: 'pages',
+				link: '#',
+				megamenu: [
+					{
+						title: 'Pages 1',
+						list: [
+							{ title: 'About Us' },
+							{ title: 'Contact Us' },
+							{ title: 'FAQ' },
+							{ title: 'Pricing Tables' },
+							{ title: 'Testimonials' }
+						]
+					},
+					{
+						title: 'Pages 2',
+						list: [
+							{ title: 'Coming Soon' },
+							{ title: 'Maintenance' },
+							{ title: '404 Page' },
+							{ title: '503 Page' },
+							{ title: 'Privacy Policy' },
+							{ title: 'Search results' }
+						]
+					},
+					{
+						title: 'Elements',
+						list: [
+							{ title: 'Typography' },
+							{ title: 'Forms' },
+							{ title: 'Buttons' },
+							{ title: 'Progress Bars' },
+							{ title: 'Tabs and Accordions' },
+							{ title: 'Tables' },
+							{ title: 'Grid system' }
+						]
+					},
+					{
+						title: 'Blog',
+						list: [
+							{ title: 'Blog' },
+							{ title: 'Blog post' }
+						]
+					}
+				]
+			},
+
+		];

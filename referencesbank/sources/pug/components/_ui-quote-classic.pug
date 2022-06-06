@@ -1,0 +1,11 @@
+mixin quote-classic(obj)
+	blockquote.quote-classic&attributes(attributes)
+		+quote-mark.quote-classic-mark
+		.quote-classic-text
+			block
+		.quote-classic-meta
+			+img(obj.avatar).quote-classic-avatar
+			.quote-classic-info
+				cite.quote-classic-cite.heading-5=obj.name
+				p.quote-classic-subtitle=obj.position
+

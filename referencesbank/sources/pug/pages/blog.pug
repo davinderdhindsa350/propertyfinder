@@ -1,0 +1,75 @@
+extends  ../_skeleton
+
+//- Includes
+include ../components/_ui-post-classic
+include ../components/_ui-pagination
+
+block variables
+	- var activeCategory = 'blog'
+	- var pageName = 'Blog'
+
+block page 
+	// Page Header
+	include ../sections/_header-classic
+
+	+breadcrumbs({
+		category: activeCategory,
+		path: [pageName],
+		img: 'bg-image-10'
+	}).breadcrumbs-custom-overlay-1
+	
+	section.section.section-md
+		.container
+			.row.row-50.row-xl-70
+				.col-sm-6.col-lg-4
+					+post-classic({
+						img: 'blog-1-369x253',
+						title: 'The Future of Work for Americans',
+						time: 'November 23, 2021'
+					})
+						p There’s no denying that the landscape of work is changing. More and more companies are adopting 
+						
+				.col-sm-6.col-lg-4
+					+post-classic({
+						img: 'blog-2-369x253',
+						title: 'How to Find a Business Development Job',
+						time: 'November 23, 2021'
+					})
+						p Business development professionals are at the heart of all sorts of organizations, from startups to  
+						
+				.col-sm-6.col-lg-4
+					+post-classic({
+						img: 'blog-3-369x253',
+						title: 'Searching for Job When You Have No Time',
+						time: 'November 23, 2021'
+					})
+						p You’re committed to your job search, and you use every ounce of your free time you have to comb 
+						
+				.col-sm-6.col-lg-4
+					+post-classic({
+						img: 'blog-4-369x253',
+						title: 'Organize Your Workspace with These Tips',
+						time: 'November 23, 2021'
+					})
+						p What’s the hardest working location in your house? If you’re like many workers, it’s your office 
+						
+				.col-sm-6.col-lg-4
+					+post-classic({
+						img: 'blog-5-369x253',
+						title: 'Finding a Remote Editing Job to Satisfy Your Needs',
+						time: 'November 23, 2021'
+					})
+						p In this post, we’d like to focus  on members who found remote editing jobs, allowing them to work 
+						
+				.col-sm-6.col-lg-4
+					+post-classic({
+						img: 'blog-6-369x253',
+						title: 'Online Teaching: Theory and Basics',
+						time: 'November 23, 2021'
+					})
+						p Have you been considering an online teacher job but don’t know exactly how to get started? A great first  
+						
+			+pagination-bootstrap(3, 4).text-center
+						
+	// Page Footer
+	include ../sections/_footer-classic

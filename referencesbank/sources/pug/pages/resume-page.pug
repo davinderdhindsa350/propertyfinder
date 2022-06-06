@@ -1,0 +1,188 @@
+extends  ../_skeleton
+
+//- Includes
+include ../components/_ui-progress-linear
+
+block variables
+	- var activeCategory = 'for-candidates'
+	- var pageName = 'Resume Page'
+
+block page 
+	// Page Header
+	include ../sections/_header-classic
+
+	+parallax({
+		img: 'bg-image-14'
+	}).section-sm.bg-gray-700.bg-overlay-4
+		.container
+			.layout-2
+				.layout-2-item.layout-2-item-main
+					// Profile Light
+					article.profile-light
+						+img('resume-page-1-169x169').profile-light-image
+						.profile-light-main
+							h4.profile-light-name Amanda Cook
+							h6.profile-light-position Marketing Director
+							.profile-light-divider
+							ul.profile-light-list
+								li
+									span.icon.icon-sm.mdi.mdi-map-marker
+									span Los Angeles, California
+								li
+									span.icon.icon-sm.mdi.mdi-cash
+									span $50000 p.a minimum
+
+				.layout-2-item.text-center.text-lg-start
+					div: .group.group-xl.group-middle
+						div
+							ul.list-inline.list-inline-xs
+								li: a.icon.icon-xxs.icon-filled.icon-filled-brand.icon-circle.fa.fa-facebook(href='#')
+								li: a.icon.icon-xxs.icon-filled.icon-filled-brand.icon-circle.fa.fa-google-plus(href='#')
+								li: a.icon.icon-xxs.icon-filled.icon-filled-brand.icon-circle.fa.fa-twitter(href='#')
+								li: a.icon.icon-xxs.icon-filled.icon-filled-brand.icon-circle.fa.fa-pinterest-p(href='#')
+						a.btn.btn-lg.btn-primary-outline.btn-anorak(href='#') Download CV
+
+
+	section.section.section-md
+		.container
+			.row.row-50
+				.col-lg-8
+					.row.row-50
+						.col-12
+							p.heading-9 About me
+							hr
+							p.text-style-1 My name is Amanda Cook and I am a Marketing Director from Los Angeles. I have previously worked in several international marketing agencies for over 10 years. I was educated at Advertising and Marketing School after I graduated from university in 2010. Here is a brief overview of my skills and experience.
+						.col-12
+							p.heading-9 Professional skills
+							hr
+							.row.row-20
+								.col-md-6
+									+progress-linear({
+										title: 'Sales',
+										valueTo: '75'
+									}).progress-bar-red
+
+									+progress-linear({
+										title: 'Analysis',
+										valueTo: '80'
+									})
+
+								.col-md-6
+									+progress-linear({
+										title: 'Finance',
+										valueTo: '85'
+									}).progress-bar-secondary
+
+									+progress-linear({
+										title: 'Marketing',
+										valueTo: '80'
+									}).progress-bar-tertiary
+
+						.col-12
+							p.heading-9 Work Experience
+							hr
+							.timeline-classic
+								.timeline-classic-item
+									.timeline-classic-period: span 2010–2012
+									.timeline-classic-main
+										h5.timeline-classic-title Junior Marketer
+										p Responsibilities: Assembling consumer rating reports by compiling, consolidating, formatting, and summarizing information, graphs, and presentations;Updates competitor database.
+
+								.timeline-classic-item
+									.timeline-classic-period: span 2012–2015
+									.timeline-classic-main
+										h5.timeline-classic-title Marketer
+										p Responsibilities: analysing and investigating price, demand and competition, devising and presenting ideas and strategies, promotional activities, compiling financial information.
+
+								.timeline-classic-item
+									.timeline-classic-period: span 2015–2017
+									.timeline-classic-main
+										h5.timeline-classic-title Marketing Director
+										p Responsibilities: development and implementation of the Brand strategy, developing the marketing strategy for new and existing products, overseeing implementation of the Marketing strategy.
+
+						.col-12
+							p.heading-9 Education
+							hr
+							.timeline-classic
+								.timeline-classic-item
+									.timeline-classic-period: span 2010–2012
+									.timeline-classic-main
+										h5.timeline-classic-title Advertising School at Stanford University
+										p Graduated from Stanford University Advertising School in 2012 after receiving a degree in Digital Design and Online Marketing. Basic skills included concepting, design, execution and presentation.
+
+								.timeline-classic-item
+									.timeline-classic-period: span 2012–2015
+									.timeline-classic-main
+										h5.timeline-classic-title School of Marketing at University of Pennsylvania
+										p Finished a 3-year course, which developed in-depth knowledge of the concepts, tools, and practice of modern marketing including traditional and modern design and promotion techniques.
+
+								.timeline-classic-item
+									.timeline-classic-period: span 2015–2017
+									.timeline-classic-main
+										h5.timeline-classic-title Massachusetts Institute of Technology
+										p Developed acquired skills and practiced new online marketing methods at special course for American marketers provided by MIT during the last 2 years.
+
+						.col-12
+							p.heading-9 My Projects
+							hr
+							.row.row-30.offset-top-30px
+								.col-sm-6
+									// Thumbnail Classic
+									a.thumbnail-classic(href='#')
+										figure.thumbnail-classic-figure: +img('resume-page-2-368x265').thumbnail-classic-image
+										.thumbnail-classic-caption
+											p.heading-9.thumbnail-classic-title Project #1
+										.thumbnail-classic-dummy
+
+								.col-sm-6
+									// Thumbnail Classic
+									a.thumbnail-classic(href='#')
+										figure.thumbnail-classic-figure: +img('resume-page-3-368x265').thumbnail-classic-image
+										.thumbnail-classic-caption
+											p.heading-9.thumbnail-classic-title Project #2
+										.thumbnail-classic-dummy
+
+								.col-sm-6
+									// Thumbnail Classic
+									a.thumbnail-classic(href='#')
+										figure.thumbnail-classic-figure: +img('resume-page-4-368x265').thumbnail-classic-image
+										.thumbnail-classic-caption
+											p.heading-9.thumbnail-classic-title Project #3
+										.thumbnail-classic-dummy
+
+								.col-sm-6
+									// Thumbnail Classic
+									a.thumbnail-classic(href='#')
+										figure.thumbnail-classic-figure: +img('resume-page-5-368x265').thumbnail-classic-image
+										.thumbnail-classic-caption
+											p.heading-9.thumbnail-classic-title Project #4
+										.thumbnail-classic-dummy
+
+				.col-lg-4
+					.row.row-30.row-lg-50
+						.col-md-6.col-lg-12
+							// RD Mailform
+							form.rd-mailform.form-corporate.form-spacing-small.form-corporate_sm(data-form-output="form-output-global", data-form-type='contact', method='post', action='bat/rd-mailform.php')
+								h4 Contact StarArt
+								.form-wrap
+									label.form-label(for="contact-name") Your Name
+									input#contact-name.form-input(type="text" name="name" data-constraints='@Required')
+
+								.form-wrap
+									label.form-label(for="contact-email") E-mail
+									input#contact-email.form-input(type="email" name="email" data-constraints='@Required @Email')
+
+								.form-wrap
+									label.form-label(for="contact-phone") Phone
+									input#contact-phone.form-input(type="text" name="phone" data-constraints='@PhoneNumber')
+
+								.form-wrap
+									label.form-label(for="contact-message") Message
+									textarea#contact-message.form-input(name="message" data-constraints='@Required')
+
+								.form-wrap
+									button.btn.btn-block.btn-anorak.btn-primary(type='submit') Send Message
+
+
+	// Page Footer
+	include ../sections/_footer-classic

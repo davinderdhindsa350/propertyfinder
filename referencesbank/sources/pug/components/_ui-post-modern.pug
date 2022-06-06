@@ -1,0 +1,14 @@
+mixin post-modern(obj)
+	// Post Modern
+	article.post-modern&attributes(attributes)
+		a.post-modern-media(href=obj.link ? obj.link : links.post)
+			+img(obj.img).post-modern-image
+		.post-modern-main
+			h5.post-modern-title: a(href=obj.link ? obj.link : links.post)=obj.title
+			hr
+			ul.post-modern-meta
+				li: a(href=obj.link ? obj.link : links.post)
+					time(datetime='2021')=obj.time
+				li: a(href=obj.link ? obj.link : links.post)
+					span=obj.comments ? obj.comments : '3 Comments'
+			

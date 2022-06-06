@@ -1,0 +1,149 @@
+/*
+*
+* Links
+*/
+
+// Standard link style
+a {
+	color: inherit;
+	letter-spacing: .025em;
+	transition: $transition-base;
+
+	&,
+	&:focus,
+	&:active,
+	&:hover {
+		text-decoration: $link-decoration;
+	}
+
+	&[href*='tel'],
+	&[href*='mailto'] {
+		white-space: nowrap;
+	}
+
+	&:hover {
+		color: $primary;
+	}
+}
+
+p {
+	a {
+		color: $primary;
+
+		&:active,
+		&:focus {
+			color: $link-press-color;
+		}
+
+		&:hover {
+			color: $link-hover-color;
+		}
+	}
+
+	.link-hover {
+		color: $link-hover-color;
+	}
+
+	.link-press {
+		color: $link-press-color;
+	}
+}
+
+
+// Privacy Link
+.privacy-link {
+	display: inline-block;
+	font-family: $font-family-sec;
+	font-size: 14px;
+	line-height: 1.7;
+}
+
+
+* + .privacy-link { margin-top: 30px; }
+
+@include media-breakpoint-up(md) {
+	.privacy-link {
+		font-size: $h6-font-size;
+		line-height: $h6-line-height;
+	}
+
+	* + .privacy-link { margin-top: 45px; }
+}
+
+
+//
+// Link Corporate
+// 
+.link-corporate {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 27px;
+	border: 1px solid $gray-300;
+	transition: .2s ease-in-out;
+	
+	img {
+		max-width: 90%;
+	}
+	
+	&::before,
+	&::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: 1;
+		border: 1px solid $primary;
+		transition: .25s ease-out;
+		contain: paint;
+	}
+	
+	&::before {
+		transform: scale3d(0, 1, 1);
+		border-width: 1px 0 1px 0;
+	}
+	
+	&::after {
+		transform: scale3d(1, 0, 1);
+		border-width: 0 1px 0 1px;
+	}
+	
+	&:hover {
+		border-color: rgba($gray-300, 0);
+		&::before,
+		&::after {
+			transform: scale3d(1, 1, 1);
+		}
+	}
+}
+
+%context-dark { 
+	.link-corporate {
+		border-color: rgba($white, .4);
+		
+		&:hover {
+			border-color: transparent;
+			
+			img {
+				filter: saturate(.45378151260504204) hue-rotate(137.2222222222222deg);
+			}
+		}
+	}
+}  
+
+@include media-breakpoint-up(sm) {
+	.owl-item .link-corporate {
+		margin-left: 2px;  
+		margin-right: 2px;
+	}
+}
+
+@include media-breakpoint-up(xl) {
+  .link-corporate {
+		min-height: 145px;
+	}
+} 
+

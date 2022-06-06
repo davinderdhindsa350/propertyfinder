@@ -1,0 +1,248 @@
+/**
+*
+* RD Navbar Classic
+*/
+
+.rd-navbar-classic {
+	// RD Navbar Aside
+	.rd-navbar-aside {
+		white-space: nowrap;
+		> * { margin-top: 0; }
+		> * + * { margin-left: 5px; }
+	}
+
+	.rd-navbar-aside-item {
+		display: inline-block;
+		vertical-align: middle;
+		white-space: normal;
+	}
+
+	// Static
+	&.rd-navbar-static {
+		transition: none;
+		box-shadow: 0 0 7px rgba(0,0,0,.2);
+		.rd-navbar-main-outer {
+			display: flex;
+			padding-left: $grid-gutter-width / 2;
+			padding-right: $grid-gutter-width / 2;
+			transform: translate3d(0, 0, 0);
+		}
+
+		// RD Navbar Panel
+		.rd-navbar-panel {
+			flex-grow: 1;
+		}
+
+		// RD Navbar Main
+		.rd-navbar-main {
+			position: relative;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			width: 100%;
+			max-width: map-get($container-max-widths, lg) - 30px;
+			min-height: 90px;
+			padding: 16px 0;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		// RD Navbar Aside
+		.rd-navbar-aside-item {
+			position: relative;
+		}
+
+		.rd-navbar-popup {
+			margin-top: 35px;
+		}
+
+		// RD Navbar Brand
+		.rd-navbar-brand {
+			max-width: 150px;
+
+			img {
+				width: auto;
+				height: auto;
+			}
+		}
+
+		.rd-navbar-main-element {
+			display: flex;
+			align-items: center;
+			padding-left: 20px;
+			padding-right: 20px;
+		}
+
+		// RD Navbar Nav
+		.rd-navbar-nav {
+		}
+
+		.rd-nav-item > .rd-navbar-dropdown {
+			margin-top: 28px;
+		}
+
+		@include media-breakpoint-up(xl) {
+			.rd-navbar-main {
+				min-height: 110px;
+				max-width: $rd-navbar-static-width;
+			}
+
+			.rd-navbar-main-element {
+				padding-left: 50px;
+				padding-right: 50px;
+			}
+
+			.rd-navbar-brand {
+				max-width: 200px;
+			}
+		}
+
+		@include media-breakpoint-up(xxl) {
+			.rd-navbar-popup {
+				left: 50%;
+				transform: translate3d(-50%, 0, 0);
+				right: auto;
+			}
+		}
+
+		// RD Navbar Stuck || Cloned
+		&.rd-navbar--is-stuck,
+		&.rd-navbar--is-clone {
+			box-shadow: 0 3px 16px 0 rgba($black, 0.1);
+
+			.rd-navbar-main {
+				min-height: 75px;
+			}
+
+			.rd-nav-item > .rd-navbar-dropdown {
+				margin-top: 18px;
+			}
+
+			.rd-navbar-popup {
+				margin-top: 17px;
+			}
+
+			.rd-navbar-nav-item {
+				> .rd-navbar-submenu {
+					margin-top: 17px;
+				}
+			}
+		}
+	}
+
+	// Fixed
+	&.rd-navbar-fixed {
+		// RD Navbar Panel
+		.rd-navbar-panel {
+			box-shadow: 0 3px 16px 0 rgba($black, 0.1);
+		}
+
+		// RD Navbar Brand
+		.rd-navbar-brand {
+			max-height: 52px;
+			max-width: 160px;
+		}
+
+		// RD Navbar Aside
+		.rd-navbar-aside {
+			position: fixed;
+			right: 8px;
+			top: 0;
+			display: flex;
+			align-items: center;
+			height: $rd-navbar-fixed-height;
+			z-index: $zindex-rd-navbar;
+
+			.btn-icon {
+				padding: 5px;
+				font-size: 0;
+
+				.icon {
+					padding: 0;
+					font-size: 20px;
+				}
+			}
+		}
+
+		// RD Navbar Popup
+		.rd-navbar-popup {
+			position: absolute;
+			margin-top: 11px;
+			width: 100vw;
+			right: -8px;
+			overflow-y: auto;
+			max-height: calc(100vh - #{$rd-navbar-fixed-height} - 10px);	
+
+			@include media-breakpoint-up(sm) {
+				width: 360px;
+			}
+		}
+	}
+}
+
+%context-dark {
+	.rd-navbar-classic {
+		.rd-navbar-aside-item {
+			> .btn-primary {
+				&:not(:hover) {
+					//background: $gray-7;
+					//border-color: $gray-7;
+
+					.icon {
+						//color: $primary;
+					}
+				}
+			}
+
+			> .btn-primary-outline {
+				&:not(:hover) {
+					//color: $primary;
+					//border-color: $gray-600;
+					.icon {
+						//color: $primary;
+					}
+				}
+			}
+		}
+	}
+
+	.rd-navbar-static.rd-navbar-classic {
+		.rd-nav-link,
+		.rd-navbar-submenu-toggle {
+			color: $white;
+		}
+
+		.rd-nav-link:hover ~ .rd-navbar-submenu-toggle,
+		.rd-nav-link:hover,
+		.rd-nav-item.active .rd-nav-link,
+		.rd-nav-item.active .rd-navbar-submenu-toggle,
+		.rd-nav-item.focus .rd-nav-link,
+		.rd-nav-item.focus .rd-navbar-submenu-toggle {
+			color: $primary;
+		}
+	}
+}
+
+.rd-navbar-classic-light {
+	.rd-navbar-aside-item {
+		> .btn-primary,
+		> .btn-primary-outline {
+			&:not(:hover) {
+				color: $gray-800;
+				background: $gray-100;
+				border-color: $gray-100;
+
+				.icon {
+					color: $primary-darken;
+				}
+			}
+		}
+	}
+}
+
+.jumbotron-creative {
+	.rd-navbar-classic.rd-navbar--is-stuck,
+	.rd-navbar-fixed .rd-navbar-panel {
+		background: $primary-dark;
+	} 
+}

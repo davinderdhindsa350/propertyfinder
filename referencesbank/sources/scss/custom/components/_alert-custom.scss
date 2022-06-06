@@ -1,0 +1,41 @@
+/*
+*
+* Alert Custom
+*/
+
+//
+// Table of Contents
+//
+//
+
+
+.alert {
+	background: lighten($primary-lighten, 10);
+	border: 1px solid $primary-lighten;
+	border-radius: 0;
+}
+
+.alert-type-1 {
+	padding: 20px 20px 20px 30px;
+
+	.alert-inner {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		@include group(20px);
+	}
+
+	.alert-main {
+		max-width: 595px;
+		letter-spacing: .025em;
+		color: $gray-800;
+	}
+
+	@include media-breakpoint-up(md) {
+	  .alert-main {
+			font-size: 16px;
+			line-height: (24 / 16);
+		}
+	}
+}

@@ -1,0 +1,68 @@
+extends  ../_skeleton
+
+//- Includes
+include ../components/_ui-table-custom
+
+block variables
+	- var activeCategory = 'pages'
+	- var pageName = 'Tables'
+
+block page
+	include ../sections/_header-classic
+
+	+breadcrumbs({
+		category: activeCategory,
+		path: [pageName],
+		img: 'bg-image-9'
+	}).breadcrumbs-custom-overlay-2
+
+	section.section.section-md.text-center
+		.container
+			h2.text-center Table Styles
+			h5.text-gray-500: span(style='max-width: 670px;') Tables have always been perfect for displaying facts and numbers. Now you can benefit from using them on your website.
+			+table-custom({
+				head: ['Column 1', 'Column 2', 'Column 3', 'Column 4'],
+				body: [
+					['Item #1', 'Description', 'Subtotal', '$3.00'],
+					['Item #2', 'Description', 'Discount', '$3.00'],
+					['Item #3', 'Description', 'Shipping', '$3.00'],
+					['Item #4', 'Description', 'Tax', '$4.00']
+				],
+				foot: ['All Items', 'Description', 'Your Total', '$13.00']
+			}).table-custom-primary
+	="\n"
+
+	hr
+
+	section.section.section-md.text-center
+		.container
+			+table-custom({
+				head: ['Column 1', 'Column 2', 'Column 3', 'Column 4'],
+				body: [
+					['Item #1', 'Description', 'Subtotal', '$3.00'],
+					['Item #2', 'Description', 'Discount', '$3.00'],
+					['Item #3', 'Description', 'Shipping', '$3.00'],
+					['Item #4', 'Description', 'Tax', '$4.00']
+				],
+				foot: ['All Items', 'Description', 'Your Total', '$13.00']
+			}).table-custom-bordered
+	="\n"
+
+	hr
+
+	section.section.section-md.text-center
+		.container
+			+table-custom({
+				head: ['Column 1', 'Column 2', 'Column 3', 'Column 4'],
+				body: [
+					['Item #1', 'Description', 'Subtotal', '$3.00'],
+					['Item #2', 'Description', 'Discount', '$3.00'],
+					['Item #3', 'Description', 'Shipping', '$3.00'],
+					['Item #4', 'Description', 'Tax', '$4.00']
+				],
+				foot: ['All Items', 'Description', 'Your Total', '$13.00']
+			}).table-custom-striped.table-custom-primary
+	="\n"
+
+	// Page Footer
+	include ../sections/_footer-classic

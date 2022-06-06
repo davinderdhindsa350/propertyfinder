@@ -1,0 +1,38 @@
+/*
+*
+* Blocks
+*/
+
+
+.block-1 {
+	max-width: 512px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.block-2 {
+	max-width: 640px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.block-3 { 
+	@include media-breakpoint-up(md) {
+		max-width: 400px; 
+	}
+}
+
+.block-4 {
+	display: inline-block;
+	max-width: 400px;
+
+	@include media-breakpoint-up(lg) {
+	  max-width: 800px;
+	}
+}
+
+.block-5 {
+	@include media-breakpoint-up(lg) {
+	  max-width: 540px; 
+	}
+}

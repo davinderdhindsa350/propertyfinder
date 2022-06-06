@@ -1,0 +1,72 @@
+/*
+*
+* Dividers
+*/
+
+hr {
+	margin-top: 0;
+	margin-bottom: 0;
+	border-top: $hr-border-width solid $hr-border-color;
+	//opacity: 1;
+}
+
+.divider {
+	font-size: 0;
+	line-height: 0;
+
+	&::after {
+		content: '';
+		display: inline-block;
+		width: 60px;
+		height: 2px;
+		background-color: $primary;
+	}
+}
+
+
+//
+// Divider Responsive
+//
+.divider-responsive {
+	width: 100%;
+	border-bottom: 1px solid $gray-200;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+@include media-breakpoint-up(lg) {
+	.col-lg-1 {
+		.divider-responsive {
+			width: 0;
+			border-bottom: 0;
+			border-right: 1px solid $gray-200;
+		}
+	}
+}
+
+
+// 
+// Divider 1
+// 
+.divider-1 {
+	height: 20px;
+	width: 1px;
+	margin-left: auto;
+	margin-right: auto;
+	background: $gray-300;
+} 
+
+%context-dark {
+	.divider-1 {
+		background: rgba($white, .46);
+	}
+}
+
+* + .divider-1 { margin-top: 15px; }
+.divider-1 + .btn { margin-top: 25px; }
+
+@include media-breakpoint-up(md) {
+	.divider-1 {
+		height: 45px;
+	}
+}

@@ -1,0 +1,10 @@
+mixin post-minimal(obj)
+	// Post Minimal
+	article.post-minimal&attributes(attributes)
+		a.post-minimal-media(href=obj.link ? obj.link : links.post)
+			+img(obj.img).post-minimal-image
+		.post-minimal-main
+			h5.post-minimal-title: a(href=obj.link ? obj.link : links.post)=obj.title
+			block
+			time.post-minimal-time(datetime='2021')=obj.time
+			

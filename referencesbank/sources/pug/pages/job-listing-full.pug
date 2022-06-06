@@ -1,0 +1,181 @@
+extends  ../_skeleton
+
+//- Includes
+include ../components/_ui-pagination
+include ../components/_ui-google-map
+
+block variables
+	- var activeCategory = 'for-candidates'
+	- var pageName = 'Job Listing Full'
+
+block page 
+	// Page Header
+	include ../sections/_header-classic
+
+	// Google Map
+	section.section
+		+google-map({custom: true})
+			li(
+			data-location='9870 St Vincent Place, Glasgow, DC 45 Fr 45.'
+			data-description='9870 St Vincent Place, Glasgow')
+			li(
+			data-location='W Campbell St, Glasgow, G2 5NR'
+			data-description='W Campbell St, Glasgow')
+			li(
+			data-location='St Mungo Ave, Glasgow G4 0PH, UK'
+			data-description='St Mungo Ave, Glasgow')
+
+	section.section.section-md
+		.container
+			form.form-creative-outer
+				.form-layout-search.form-lg
+					.form-wrap.form-wrap-icon
+						input#form-employer.form-input(type='text' name='employer' data-constraints='@Required')
+						label.form-label(for='form-employer') Keywords
+						span.icon.fl-bigmug-line-search74
+
+					.form-wrap.form-wrap-icon.form-wrap-select
+						// Select 2
+						select.form-input.select#form-categories(data-placeholder='All Categories' name='category' data-minimum-results-for-search='Infinity' data-constraints='@Selected')
+							option(label='All Categories')
+							option(value='1') Web Design
+							option(value='2') Development
+							option(value='3') Marketing
+						span.icon.icon-custom-sizing.icon-1.fl-bigmug-line-portfolio23
+
+					.form-wrap.form-wrap-icon.form-wrap-select
+						// Select 2
+						select.form-input.select#form-region(data-placeholder='All Regions' name='region' data-minimum-results-for-search='Infinity' data-constraints='@Selected')
+							option(label='All Regions')
+							option(value='1') Seattle
+							option(value='2') Miami
+							option(value='3') Chicago
+						span.icon.fl-bigmug-line-big104
+
+					.form-wrap.form-wrap-button
+						button.btn.btn-lg.btn-primary(type='submit') Search
+
+					.form-wrap
+						ul.list-inline.list-inline-md
+							li: label.checkbox-inline.checkbox_info.text-tertiary
+								input(name='vacancy-type-checkbox-1' value='checkbox-1' type='checkbox')
+								| Freelance
+								span.checkbox-meta 35
+
+							li: label.checkbox-inline.checkbox_info.text-primary
+								input(name='vacancy-type-checkbox-2' value='checkbox-2' type='checkbox')
+								| Full Time
+								span.checkbox-meta 25
+
+							li: label.checkbox-inline.checkbox_info.text-secondary
+								input(name='vacancy-type-checkbox-3' value='checkbox-3' type='checkbox')
+								| Part Time
+								span.checkbox-meta 55
+
+							li: label.checkbox-inline.checkbox_info.text-blue-11
+								input(name='vacancy-type-checkbox-4' value='checkbox-4' type='checkbox')
+								| Internship
+								span.checkbox-meta 55
+
+
+			.table-job-offers-outer
+				table.table-job-offers.table-responsive
+					tr
+						td.table-job-offers-date:  span 1 hour ago
+						td.table-job-offers-main
+							// Company Light
+							article.company-light
+								figure.company-light-figure: +img('company-1-52x52.png').company-light-image
+								.company-light-main
+									h5.company-light-title: a(href='job-details.html') Senior UX Designer
+									p StarArt, New York, NY, USA
+						td.table-job-offers-meta
+							.object-inline
+								span.icon.icon-sm.text-primary.mdi.mdi-cash
+								span $25–$35 \ hour
+						td.table-job-offers-meta
+							.object-inline
+								span.icon.icon-1.text-primary.mdi.mdi-map-marker
+								span New York, NY, USA
+						td.table-job-offers-badge: span.badge Full Time
+
+					tr
+						td.table-job-offers-date: span 1 day ago
+						td.table-job-offers-main
+							// Company Light
+							article.company-light
+								figure.company-light-figure: +img('company-2-53x46.png').company-light-image
+								.company-light-main
+									h5.company-light-title: a(href='job-details.html') Marketing Director
+									p UpBook, Saint-Etienne, France
+						td.table-job-offers-meta
+							.object-inline
+								span.icon.icon-sm.text-primary.mdi.mdi-cash
+								span $45–$53 \ hour
+						td.table-job-offers-meta
+							.object-inline
+								span.icon.icon-1.text-primary.mdi.mdi-map-marker
+								span Saint-Etienne, France
+						td.table-job-offers-badge: span.badge.badge-secondary Part Time
+
+					tr
+						td.table-job-offers-date: span 1 day ago
+						td.table-job-offers-main
+							// Company Light
+							article.company-light
+								figure.company-light-figure: +img('company-3-42x42.png').company-light-image
+								.company-light-main
+									h5.company-light-title: a(href='job-details.html') Front End Developer
+									p MediaLab, Derry, United Kingdom
+						td.table-job-offers-meta
+							.object-inline
+								span.icon.icon-sm.text-primary.mdi.mdi-cash
+								span $25–$43 \ hour
+						td.table-job-offers-meta
+							.object-inline
+								span.icon.icon-1.text-primary.mdi.mdi-map-marker
+								span Derry, United Kingdom
+						td.table-job-offers-badge: span.badge.badge-tertiary Freelance
+
+					tr
+						td.table-job-offers-date: span 1 day ago
+						td.table-job-offers-main
+							// Company Light
+							article.company-light
+								figure.company-light-figure: +img('company-4-40x43.png').company-light-image
+								.company-light-main
+									h5.company-light-title: a(href='job-details.html') Website Designer
+									p Creator, Los Angeles, CA, USA
+						td.table-job-offers-meta
+							.object-inline
+								span.icon.icon-sm.text-primary.mdi.mdi-cash
+								span $15–$43 \ hour
+						td.table-job-offers-meta
+							.object-inline
+								span.icon.icon-1.text-primary.mdi.mdi-map-marker
+								span Los Angeles, CA, USA
+						td.table-job-offers-badge: span.badge Full Time
+
+					tr
+						td.table-job-offers-date: span 1 day ago
+						td.table-job-offers-main
+							// Company Light
+							article.company-light
+								figure.company-light-figure: +img('company-5-52x52.png').company-light-image
+								.company-light-main
+									h5.company-light-title: a(href='job-details.html') Restaurant Dishwasher
+									p Camping, Stockholm, Sweden
+						td.table-job-offers-meta
+							.object-inline
+								span.icon.icon-sm.text-primary.mdi.mdi-cash
+								span $10–$20 \ hour
+						td.table-job-offers-meta
+							.object-inline
+								span.icon.icon-1.text-primary.mdi.mdi-map-marker
+								span Stockholm, Sweden
+						td.table-job-offers-badge: span.badge.badge-secondary Part Time
+
+			+pagination-bootstrap(3, 4).text-center
+
+	// Page Footer
+	include ../sections/_footer-classic

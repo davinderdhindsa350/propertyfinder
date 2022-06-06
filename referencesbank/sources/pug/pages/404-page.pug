@@ -1,0 +1,27 @@
+extends  ../_skeleton
+
+block variables
+	- var activeCategory = 'pages'
+	- var pageName = '404 Page'
+
+block page 
+	// Page Header
+	include ../sections/_header-classic
+
+	+breadcrumbs({
+		category: activeCategory,
+		path: [pageName],
+		title: '404',
+		img: 'bg-image-2'
+	}).breadcrumbs-custom-overlay-1
+
+	section.section.section-md.text-center
+		.container
+			h2.text-gray-3 #[span.text-secondary Oops!] Page Not found
+			h5 You may have mistyped the address or the page may have moved
+			.group.group-sm.group-middle
+				a.btn.btn-gray-800-outline(href='index.html') Go to home page
+				a.btn.btn-primary(href='contact-us.html') Contact Us
+
+	// Page Footer
+	include ../sections/_footer-classic

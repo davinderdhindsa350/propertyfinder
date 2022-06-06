@@ -1,0 +1,401 @@
+/*
+*
+* Quotes
+*/
+
+//
+// Table of Contents: 
+//
+// Quote Light
+// Quote Classic
+// Quote Minimal
+// Quote Modern
+// Quote Mary
+//
+
+//
+// Quote Light
+//
+.quote-light {
+	padding: 20px 15px;
+	border-top: 1px solid $gray-200;
+	border-bottom: 1px solid $gray-200;
+	font-family: $font-family-sec;
+	font-weight: 300;
+	font-size: 16px;
+	line-height: 1.5;
+	color: $gray-800;
+	text-align: left;
+
+	p {
+		display: inline;
+		margin: 0;
+	}
+}
+
+.quote-light-inner {
+	position: relative;
+	padding-left: 20px;
+}
+
+.quote-light-mark {
+	svg {
+		fill: #e7e8ee;
+	}
+}
+
+.quote-light-mark-left {
+	position: absolute;
+	left: 0;
+	top: 0;
+	display: block;
+}
+
+.quote-light-mark-right {
+	display: inline;
+	vertical-align: middle;
+	margin-left: 5px;
+
+	svg {
+		transform: scale(-1, -1);
+	}
+}
+
+* + .quote-light { margin-top: 30px; }
+.quote-light + p { margin-top: 20px; }
+
+@include media-breakpoint-down(sm) {
+  .quote-light-mark {
+		svg {
+			width: 14px;
+			height: 13px;
+		}
+	}
+}
+
+@include media-breakpoint-up(sm) {
+  .quote-light {
+		font-size: 20px;
+	}
+
+	.quote-light-inner {
+		padding-left: 40px;
+	}
+
+	.quote-light + p { margin-top: 26px; }
+}
+
+@include media-breakpoint-up(md) {
+	.quote-light {
+		padding: 20px 30px;
+		font-size: 22px;
+	}
+}
+
+@include media-breakpoint-up(lg) {
+	.quote-light {
+		padding: 20px 45px;
+		font-size: 24px;
+	}
+}
+
+	//
+// Quote Classic
+//
+.quote-classic {
+	position: relative;
+	text-align: left;
+	padding: 30px 20px;
+	margin-bottom: 15px;
+	box-shadow: 0 24px 21px 0 rgba($black, .08);
+	background: $white;
+
+	&::after {
+		content: '';
+		position: absolute;
+		left: 20px;
+		bottom: -17px;
+		width: 0;
+		height: 0;
+		border-style: solid;
+		border-width: 18px 26px 0 0;
+		border-color: $white transparent transparent transparent;
+		pointer-events: none;
+	}
+}
+
+.quote-classic-mark {
+	fill: $gray-4;
+}
+
+.quote-classic-text {
+	font-family: $font-family-sec;
+	color: $gray-800;
+	letter-spacing: .01em;
+}
+
+.quote-classic-meta {
+	display: flex;
+	align-items: center;
+
+	> * + * { margin-left: 20px; }
+}
+
+.quote-classic-avatar {
+	position: relative;
+	display: block;
+	border-radius: 50%;
+	max-width: 75px;
+	flex-shrink: 0;
+}
+
+.quote-classic-cite {
+	display: block;
+	font-weight: 500;
+}
+
+.quote-classic-info {
+	flex-grow: 1;
+
+	> * + * { margin-top: 0; }
+}
+
+.quote-classic-subtitle {
+	letter-spacing: .025em;
+	color: $primary;
+}
+
+* + .quote-classic-text { margin-top: 11px; }
+* + .quote-classic-meta { margin-top: 20px; }
+
+
+@include media-breakpoint-down(md) {
+  .quote-classic {
+		padding: 30px 40px;
+		max-width: 400px;
+		margin-left: auto;
+		margin-right: auto;
+
+
+		&::after {
+			left: 40px;
+		}
+	}
+}
+
+@include media-breakpoint-up(sm) {
+
+}
+
+@include media-breakpoint-up(md) {
+	.quote-classic-text {
+		font-size: 15px;
+		line-height: (26 / 16);
+	}
+}
+
+@include media-breakpoint-up(lg) {
+	.quote-classic {
+		padding-left: 30px;
+		padding-right: 35px;
+
+		&::after {
+			left: 30px;
+		}
+	}
+
+	.quote-classic-text {
+		font-size: 14px;
+	}
+
+	@include media-breakpoint-down(xl) {
+		.quote-classic-avatar {
+			max-width: 60px;
+		}
+	}
+}
+
+@include media-breakpoint-up(xl) {
+  .quote-classic {
+		padding: 40px 15px 40px 40px;
+
+		&::after {
+			left: 40px;
+		}
+	}
+
+	.quote-classic-text {
+		font-size: 16px;
+	}
+}
+
+
+//
+// Quote Minimal
+//
+.quote-minimal {
+	max-width: 250px;
+	text-align: left;
+}
+
+.quote-minimal-mark {
+	fill: $gray-200;
+}
+
+.quote-minimal-divider {
+	width: 80px;
+	border-bottom: 1px solid $gray-100;
+}
+
+.quote-minimal-text,
+.quote-minimal-cite,
+.quote-minimal-position {
+	font-family: $font-family-sec;
+	font-size: 15px;
+	line-height: (24 / 16);
+}
+
+.quote-minimal-text {
+	font-weight: 300;
+}
+
+.quote-minimal-cite {
+	font-weight: 500;
+}
+
+.quote-minimal-position {
+	font-weight: 300;
+	color: $primary;
+}
+
+* + .quote-minimal-text { margin-top: 10px; }
+* + .quote-minimal-divider { margin-top: 20px; }
+* + .quote-minimal-cite { margin-top: 15px; }
+* + .quote-minimal-position { margin-top: 3px; }
+
+%context-dark {
+	.quote-minimal {
+		color: $white;
+	}
+	
+	.quote-minimal-mark {
+		fill: rgba($white, .21);
+	}
+
+	.quote-minimal-divider {
+		border-bottom-color: rgba($white, .3);
+	}
+}
+
+
+@include media-breakpoint-up(md) {
+	.quote-minimal-text,
+	.quote-minimal-cite,
+	.quote-minimal-position {
+		font-size: 16px;
+	}
+	
+	* + .quote-minimal-text { margin-top: 20px; }
+	* + .quote-minimal-divider { margin-top: 25px; }
+	* + .quote-minimal-cite { margin-top: 25px; }
+}
+
+//
+// Quote Modern
+//
+.quote-modern {
+	max-width: 560px;
+	text-align: left;
+}
+
+.quote-modern-header {
+	@include group(15px, 5px);
+	> * {
+		display: inline-block;
+		vertical-align: middle;
+	}
+}
+
+.quote-modern-mark {
+	position: absolute;
+	top: -10px;
+	left: 0;
+	z-index: -1;
+	fill: $gray-4;
+	opacity: .4;
+}
+
+.quote-modern-text {
+	position: relative;
+	z-index: 1;
+	padding-left: 20px;
+	font-family: $font-family-sec;
+	letter-spacing: .025em;
+	line-height: (26/ 16);
+	color: $gray-800;
+}
+
+* + .quote-modern-text { margin-top: 22px; }
+
+@include media-breakpoint-up(lg) {
+	.quote-modern-mark {
+		top: 8px;
+		opacity: 1;
+	}
+
+	.quote-modern-text {
+		padding-left: 70px;
+		font-size: 15px;
+	}
+}
+
+@include media-breakpoint-up(xl) {
+	.quote-modern-text {
+		font-size: 16px;
+	}
+}
+
+//
+// Quote Mary
+// 
+.quote-mary {
+	max-width: 730px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+.quote-mary-mark {
+	fill: $gray-300;
+}
+
+.quote-mary-text {
+	font-family: $font-family-sec;
+	letter-spacing: .025em;
+	line-height: (26 / 16);
+}
+
+.quote-mary-position {
+	line-height: 1.2;
+	letter-spacing: .025em;
+	color: $primary;
+}
+
+%context-dark {
+	.quote-mary-mark {
+		fill: #6f8193;
+	}
+}
+
+* + .quote-mary-text { margin-top: 10px; }
+* + .quote-mary-cite { margin-top: 15px; }
+* + .quote-mary-position { margin-top: 6px; }
+
+@include media-breakpoint-up(sm) {
+  .quote-mary-text {
+		font-size: 16px;
+	}
+
+	* + .quote-mary-text { margin-top: 15px; }
+	* + .quote-mary-cite { margin-top: 20px; }
+}

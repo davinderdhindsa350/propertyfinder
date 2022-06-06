@@ -1,0 +1,116 @@
+extends  ../_skeleton
+
+//- Includes
+
+block variables
+	- var activeCategory = 'for-candidates'
+	- var pageName = 'Job Details'
+
+block page 
+	// Page Header
+	include ../sections/_header-classic
+
+	+breadcrumbs({
+		category: activeCategory,
+		path: [pageName],
+		title: 'Social Media Specialist',
+		img: 'bg-image-9'
+	}).breadcrumbs-custom-overlay-2
+
+	section.section.section-md
+		.container
+			.row.row-50
+				.col-lg-8
+					.layout-details
+							article.company-light.company-light_1
+								figure.company-light-logo: +img('company-1-52x52.png').company-light-logo-image
+								.company-light-main
+									h5.company-light-title StarArt
+									.company-light-info
+										.row.row-15.row-bordered
+											.col-sm-6
+												ul.list.list-xs
+													li: p.object-inline.object-inline_sm
+														span.icon.icon-1.text-primary.mdi.mdi-map-marker
+														span New York, NY, USA
+													li: p.object-inline.object-inline_sm
+														span.icon.icon-default.text-primary.mdi.mdi-clock
+														span Post Date: May 29, 2015
+
+											.col-sm-6
+												ul.list.list-xs
+													li: p.object-inline.object-inline_sm
+														span.icon.icon-sm.text-primary.mdi.mdi-cash
+														span Salary: $30000 - $35000
+													li: p.object-inline.object-inline_sm
+														span.icon.icon-1.text-primary.mdi.mdi-web
+														span: a(href='#') www.demolink.org
+
+					p.text-style-1 We’re looking for a full stack marketer who can master social media, copywriting, photography, video editing, community outreach and more. Are you entrepreneurial by nature and a doer with strong examples of execution? Are you a highly energetic and a self starter? If the answer is “yes”, then we need you!
+					.row.row-30
+						.col-md-6
+							h4 Job Responsibilities
+							ul.list-marked-3
+								li Increasing our social media following to 1M+ within the next 18 months
+								li Coming up with new, impactful SMM ideas
+								li Snapping beautiful photos for Instagram, Facebook and Snapchat
+								li Travelling to events, running demos and stands
+
+						.col-md-6
+							h4 Why Work With us
+							ul.list-marked-3
+								li Growth opportunity in one of the USA’s and Europe's fastest growing marketing agencies
+								li Being a part of a friendly and qualified team
+								li You’ll have a chance to work with industry leaders and renowned advertising experts
+								li Free healthcare and entertainment options
+
+					.layout-1: .layout-1-inner
+						p Share this vacancy
+						div
+							ul.list-inline.list-inline-xs
+								li: a.icon.icon-xxs.icon-filled.icon-filled-brand.icon-circle.fa.fa-facebook(href='#')
+								li: a.icon.icon-xxs.icon-filled.icon-filled-brand.icon-circle.fa.fa-google-plus(href='#')
+								li: a.icon.icon-xxs.icon-filled.icon-filled-brand.icon-circle.fa.fa-twitter(href='#')
+								li: a.icon.icon-xxs.icon-filled.icon-filled-brand.icon-circle.fa.fa-pinterest-p(href='#')
+
+
+					.block.offset-top-2
+						h4 Related Jobs
+						table.table-job-listing.table-responsive
+							tr
+								td.table-job-listing-main
+									// Company Minimal
+									article.company-minimal
+										figure.company-minimal-figure: +img('company-2-53x46.png').company-minimal-image
+										.company-minimal-main
+											h5.company-minimal-name: a(href='job-details.html') Marketing Director
+											p UpBook, Saint-Etienne, France
+								td.table-job-listing-badge: span.badge.badge-secondary Part Time
+
+							tr
+								td.table-job-listing-main
+									// Company Minimal
+									article.company-minimal
+										figure.company-minimal-figure: +img('company-3-42x42.png').company-minimal-image
+										.company-minimal-main
+											h5.company-minimal-name: a(href='job-details.html') Front End Developer
+											p MediaLab, Derry, United Kingdom
+								td.table-job-listing-badge: span.badge.badge-tertiary Freelance
+
+							tr
+								td.table-job-listing-main
+									// Company Minimal
+									article.company-minimal
+										figure.company-minimal-figure: +img('company-4-40x43.png').company-minimal-image
+										.company-minimal-main
+											h5.company-minimal-name: a(href='job-details.html') Website Designer
+											p Creator, Los Angeles, CA, USA
+								td.table-job-listing-badge: span.badge Full Time
+
+
+				.col-lg-4
+					include ../includes/_contacts-sidebar
+											
+								
+	// Page Footer
+	include ../sections/_footer-classic

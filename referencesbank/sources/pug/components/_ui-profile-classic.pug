@@ -1,0 +1,13 @@
+mixin profile-classic(obj)
+	// Profile Classic
+	a.profile-classic(href='#')
+		figure.profile-classic-figure: +img(obj.img).profile-classic-image
+		.profile-classic-main
+			h5.profile-classic-name=obj.name
+			ul.profile-classic-list
+				li
+					span.icon.mdi.mdi-map-marker
+					span=obj.location
+				li
+					span.icon.mdi.mdi-account
+					span=obj.position

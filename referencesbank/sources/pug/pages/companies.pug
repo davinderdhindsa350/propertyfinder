@@ -1,0 +1,195 @@
+extends  ../_skeleton
+
+//- Includes
+include ../components/_ui-pagination
+
+block variables
+	- var activeCategory = 'for-candidates'
+	- var pageName = 'Companies'
+
+block page 
+	// Page Header
+	include ../sections/_header-classic
+
+	+breadcrumbs({
+		category: activeCategory,
+		path: [pageName],
+		img: 'bg-image-12'
+	}).breadcrumbs-custom-overlay-4
+
+
+	section.section.section-md
+		.container
+			form.form-layout-search.form-lg
+				.form-wrap.form-wrap-icon
+					input#form-employer.form-input(type='text' name='employer' data-constraints='@Required')
+					label.form-label(for='form-employer') Find Employer
+					span.icon.fl-bigmug-line-search74
+
+				.form-wrap.form-wrap-icon.form-wrap-select
+					// Select 2
+					select.form-input.select#form-region(data-placeholder='All Regions' name='region' data-minimum-results-for-search='Infinity' data-constraints='@Selected')
+						option(label='All Regions')
+						option(value='1') Seattle
+						option(value='2') Miami
+						option(value='3') Chicago
+					span.icon.fl-bigmug-line-big104
+
+				.form-wrap.form-wrap-button
+					button.btn.btn-lg.btn-primary(type='submit') Search
+
+
+			.row.row-50.flex-lg-row-reverse
+				.col-lg-4.col-xl-3
+					.row.row-30
+						.col-md-6.col-lg-12
+							p.heading-8 Speciality
+							hr
+							.form-wrap.form-wrap-select.form-filled
+								// Select 2
+								select.form-input.select(name='speciality' data-minimum-results-for-search="Infinity" data-constraints='@Selected' data-placeholder='Select a speciality' data-dropdown-class='select2-dropdown-filled')
+									option(label='Select a speciality')
+									option(value='1') Web Design
+									option(value='2') Development
+									option(value='3') Marketing
+									option(value='4') Illustration
+
+							ul.list.list-xs
+								li
+									label.checkbox.checkbox_info
+										input(name='category-checkbox-1' value='checkbox-1' type='checkbox')
+										| Web Design
+										span.checkbox-meta 23
+
+								li
+									label.checkbox.checkbox_info
+										input(name='category-checkbox-2' value='checkbox-2' type='checkbox')
+										| Illustrator
+										span.checkbox-meta 47
+
+								li
+									label.checkbox.checkbox_info
+										input(name='category-checkbox-3' value='checkbox-3' type='checkbox')
+										| Art Director
+										span.checkbox-meta 67
+
+								li
+									label.checkbox.checkbox_info
+										input(name='category-checkbox-4' value='checkbox-4' type='checkbox')
+										| UX Design
+										span.checkbox-meta 35
+
+						.col-md-6.col-lg-12
+							p.heading-8 Team size
+							hr
+							ul.list.list-xs
+								li: label.checkbox.checkbox_info
+									input(name='team-size-checkbox-1' value='checkbox-1' type='checkbox')
+									| 1 - 100
+									span.checkbox-meta 100
+
+								li: label.checkbox.checkbox_info
+									input(name='team-size-checkbox-2' value='checkbox-2' type='checkbox')
+									| 100 - 200
+									span.checkbox-meta 73
+
+								li: label.checkbox.checkbox_info
+									input(name='team-size-checkbox-3' value='checkbox-3' type='checkbox')
+									| 200 - 500
+									span.checkbox-meta 55
+
+								li: label.checkbox.checkbox_info
+									input(name='team-size-checkbox-4' value='checkbox-4' type='checkbox')
+									| 1000+
+									span.checkbox-meta 35
+
+				.col-lg-8.col-xl-9
+					- var sortOptions = ['A', 'B', 'C', 'D', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '#']
+					.block-sort-options 
+						.selected All
+						each option in sortOptions
+							div=option
+						
+								
+					table.table-companies.table-responsive
+						tr
+							td.table-companies-main
+								// Company Minimal
+								article.company-minimal
+									figure.company-minimal-figure: +img('company-1-52x52.png').company-minimal-image
+									.company-minimal-main
+										h5.company-minimal-name: a(href='companies-page.html') StarArt
+										p Marketing Agency
+							td.table-companies-meta
+								span.icon.mdi.mdi-map-marker
+								span Los Angeles, California
+								
+							td.table-companies-meta
+								span.icon.mdi.mdi-file-document
+								span 2 Vacancies 
+						tr 
+							td.table-companies-main
+								// Company Minimal
+								article.company-minimal
+									figure.company-minimal-figure: +img('company-2-53x46.png').company-minimal-image
+									.company-minimal-main
+										h5.company-minimal-name: a(href='companies-page.html') UpBook
+										p Publishing House
+							td.table-companies-meta
+								span.icon.mdi.mdi-map-marker
+								span Seattle, Washington
+								
+							td.table-companies-meta
+								span.icon.mdi.mdi-file-document
+								span 6 Vacancies
+						tr 
+							td.table-companies-main
+								// Company Minimal
+								article.company-minimal
+									figure.company-minimal-figure: +img('company-3-42x42.png').company-minimal-image
+									.company-minimal-main
+										h5.company-minimal-name: a(href='companies-page.html') Media Lab
+										p Design Studio
+							td.table-companies-meta
+								span.icon.mdi.mdi-map-marker
+								span New York, New York
+								
+							td.table-companies-meta
+								span.icon.mdi.mdi-file-document
+								span 6 Vacancies
+						tr 
+							td.table-companies-main
+								// Company Minimal
+								article.company-minimal
+									figure.company-minimal-figure: +img('company-4-40x43.png').company-minimal-image
+									.company-minimal-main
+										h5.company-minimal-name: a(href='companies-page.html') Creator
+										p Web Design Agency
+							td.table-companies-meta
+								span.icon.mdi.mdi-map-marker
+								span Chicago, Illinois
+								
+							td.table-companies-meta
+								span.icon.mdi.mdi-file-document
+								span 6 Vacancies
+						tr 
+							td.table-companies-main
+								// Company Minimal
+								article.company-minimal
+									figure.company-minimal-figure: +img('company-5-52x52.png').company-minimal-image
+									.company-minimal-main
+										h5.company-minimal-name: a(href='companies-page.html') Camping
+										p Tourism Services Provider
+							td.table-companies-meta
+								span.icon.mdi.mdi-map-marker
+								span Boston, Massachusetts
+								
+							td.table-companies-meta
+								span.icon.mdi.mdi-file-document
+								span 6 Vacancies
+								
+								
+					+pagination-bootstrap(3, 4).text-center
+
+	// Page Footer
+	include ../sections/_footer-classic

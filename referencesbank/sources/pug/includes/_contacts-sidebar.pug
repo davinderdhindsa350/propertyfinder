@@ -1,0 +1,36 @@
+include ../components/_ui-google-map
+
+.row.row-30.row-lg-50
+	.col-md-6.col-lg-12
+		// RD Mailform
+		form.rd-mailform.form-corporate.form-spacing-small.form-corporate_sm(data-form-output="form-output-global", data-form-type='contact', method='post', action='bat/rd-mailform.php')
+			h4 Contact StarArt
+			.form-wrap
+				label.form-label(for="contact-name") Your Name
+				input#contact-name.form-input(type="text" name="name" data-constraints='@Required')
+
+			.form-wrap
+				label.form-label(for="contact-email") E-mail
+				input#contact-email.form-input(type="email" name="email" data-constraints='@Required @Email')
+
+			.form-wrap
+				label.form-label(for="contact-phone") Phone
+				input#contact-phone.form-input(type="text" name="phone" data-constraints='@PhoneNumber')
+
+			.form-wrap
+				label.form-label(for="contact-message") Message
+				textarea#contact-message.form-input(name="message" data-constraints='@Required')
+
+			.form-wrap
+				button.btn.btn-block.btn-anorak.btn-primary(type='submit') Send Message
+
+	.col-md-6.col-lg-12
+		+google-map({})
+
+		article.message-bubble: .message-bubble-inner
+			.icon.mdi.mdi-map-marker.icon-sm.text-primary
+			.message-bubble-main
+				p 116 Holland Park, Holland Park, W11 4UA
+				p
+					| Email:&nbsp;
+					a(href='mailto:#') info@demolink.org

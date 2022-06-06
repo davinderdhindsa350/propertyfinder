@@ -1,0 +1,82 @@
+extends  ../_skeleton
+
+//- Includes
+include ../components/_ui-profile-minimal
+include ../components/_ui-pagination
+	
+block variables
+	- var activeCategory = 'for-employers'
+	- var pageName = 'Candidates'
+
+block page 
+	// Page Header
+	include ../sections/_header-classic
+
+	+breadcrumbs({ 
+		category: activeCategory,
+		path: [pageName],
+		img: 'bg-image-9'
+	}).breadcrumbs-custom-overlay-2
+
+
+	section.section.section-md
+		.container
+			include ../includes/_candidates-search
+					
+			.row.row-50.flex-lg-row-reverse
+				.col-lg-4.col-xl-3
+					include ../includes/_candidates-sidebar
+							
+				.col-lg-8.col-xl-9
+					+profile-minimal({
+						img: 'candidates-1-101x96',
+						name: 'Amanda Cook',
+						salary: '$50000 p.a. minimum',
+						position: 'Junior Web Designer',
+						location: 'Los Angeles, California'
+					})
+					
+					+profile-minimal({
+						img: 'candidates-2-101x96',
+						name: 'Kevin Parker', 
+						salary: '$40000 p.a. minimum',
+						position: 'HR Manager',
+						location: 'Seattle, Washington'
+					})
+					
+					+profile-minimal({
+						img: 'candidates-3-101x96',
+						name: 'Sandy Williams',
+						salary: '$50000 p.a. minimum',
+						position: 'Sales Manager',
+						location: 'Miami, Florida'
+					})
+					
+					+profile-minimal({
+						img: 'candidates-4-101x96',
+						name: 'James Johnson',
+						salary: '$40000 p.a. minimum',
+						position: 'Programmer',
+						location: 'Boston, Massachusetts'
+					})
+					
+					+profile-minimal({
+						img: 'candidates-5-101x96',
+						name: 'Ann Lee',
+						salary: '$50000 p.a. minimum',
+						position: 'Pediatrician',
+						location: 'Atlanta, Georgia'
+					})
+					
+					+profile-minimal({
+						img: 'candidates-6-101x96',
+						name: 'Sam Smith',
+						salary: '$40000 p.a. minimum',
+						position: 'Web Designer',
+						location: 'Chicago, Illinois'
+					})
+					
+					+pagination-bootstrap(3, 4).text-center
+					
+	// Page Footer
+	include ../sections/_footer-classic

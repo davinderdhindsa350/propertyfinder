@@ -1,0 +1,28 @@
+extends  ../_skeleton
+
+block variables
+	- var activeCategory = 'pages'
+	- var pageName = '503 Page'
+
+block page 
+	// Page Header
+	include ../sections/_header-classic
+
+	+breadcrumbs({
+		category: activeCategory,
+		path: [pageName],
+		title: '503',
+		img: 'bg-image-1'
+	})
+
+	section.section.section-md.text-center
+		.container
+			.icon.icon-xxl.text-secondary.mercury-icon-gear
+			h2.h2-smaller Service is Temporarily Unavailable
+			h6.text-gray-500: span(style='max-width: 570px;') Sorry, we're offline right now to make our site even better. Please, come back later and check what we've been up to.
+			.group.group-sm.group-middle
+				a.btn.btn-gray-800-outline(href='index.html') Go to home page
+				a.btn.btn-primary(href='contact-us.html') Contact Us
+
+	// Page Footer
+	include ../sections/_footer-classic

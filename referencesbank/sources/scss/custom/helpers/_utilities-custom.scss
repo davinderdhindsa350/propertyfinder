@@ -1,0 +1,305 @@
+/*
+*
+* Utilities custom
+*/
+.height-fill {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+
+	> * {
+		flex-grow: 1;
+		flex-shrink: 0;
+	}
+}
+
+// Object inline 
+.object-inline {
+	white-space: nowrap;
+	> * {
+		display: inline-block;
+		min-width: 20px;
+		vertical-align: top;
+		white-space: normal;
+	}
+
+	> * + * { margin-left: 5px; }
+
+	.icon-1,
+	.icon-default {
+		position: relative;
+		top: 2px;
+	}
+	
+	a {
+		color: inherit;
+		
+		&:hover {
+			color: $primary;
+		}
+	}
+}
+
+.object-inline_sm {
+	> * + * { margin-left: 2px; }
+}
+
+.oh {
+	position: relative;
+	overflow: hidden;
+}
+
+.text-width-small {
+	max-width: 320px;
+}
+
+// Text decorations
+.text-decoration-lines {
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	text-align: center;
+
+	&-content {
+		position: relative;
+		display: inline-block;
+		min-width: 170px;
+		font-size: 13px;
+		text-transform: uppercase;
+
+		&::before,
+		&::after {
+			content: '';
+			position: absolute;
+			height: 1px;
+			background: $gray-200;
+			top: 50%;
+			width: 100vw;
+		}
+
+		&::before {
+			left: 0;
+			transform: translate3d(-100%, 0, 0);
+		}
+
+		&::after {
+			right: 0;
+			transform: translate3d(100%, 0, 0);
+		}
+	}
+}
+
+* + .text-decoration-lines { margin-top: 30px; }
+
+.text-decoration-lines + .rd-form { margin-top: 17px; }
+
+// Rights
+.rights {
+	a {
+		text-decoration: underline;
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
+}
+
+.text-block {
+	> * {
+		margin-left: .125em;
+		margin-right: .125em;
+	}
+}
+
+// Tip Mark
+.tip-mark {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	top: .2em;
+	width: 2em;
+	height: 2em;
+	padding-left: 2px;
+	margin-bottom: 5px;
+	font-size: 14px;
+	line-height: 2em;
+	vertical-align: middle;
+	text-align: center;
+	border-radius: 50%;
+	border: 2px solid $gray-200;
+	color: $primary;
+	cursor: pointer;
+	user-select: none;
+}
+
+%context-dark {
+	.tip-mark {
+		color: $white;
+	}
+}
+
+// 
+// Phone Frame
+//
+.phone-frame-outer {
+	position: relative;
+	z-index: 1;
+	height: 350px;
+}
+
+.phone-frame {
+	position: relative;
+	overflow: hidden;
+	max-width: 290px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.phone-frame-reflection {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 10;
+	pointer-events: none;
+}
+
+.phone-frame-image-outer {
+	position: absolute;
+	top: 11.8%;
+	right: 8.7%;
+	bottom: 15.2%;
+	left: 8.1%;
+	background: $gray-800;
+	background-position: center center;
+	background-size: cover;
+}
+
+.phone-frame-logo {
+	position: absolute;
+	top: 34%;
+	left: 50%;
+	transform: translate3d(-50%, 0, 0);
+	max-width: 80%;
+}
+
+
+// 
+// Placeholder
+//
+.placeholder-1 {
+	height: 80px;
+}
+
+// Inset Left
+.inset-left-1 {
+	padding-left: 20px;
+}
+
+@include media-breakpoint-up(md) {
+	.inset-left-1 {
+		padding-left: 63px;
+	}
+}
+
+
+//
+// Promo Search
+//
+.promo-search {
+	position: relative;
+	overflow: hidden;
+	padding: 20px 10px 30px;
+	background: $gray-100;
+	text-align: center;
+}
+
+.promo-search-icon-outer {
+	position: absolute;
+}
+
+.promo-search-icon {
+	width: auto !important;
+	height: auto !important;
+	min-height: 100%;
+	fill: #e0e1e9;
+}
+
+.promo-search-main {
+	position: relative;
+	z-index: 1;
+	@include groupY(15px);
+	max-width: 290px;
+	margin-left: auto;
+	margin-right: auto;
+	
+	.btn {
+		padding-left: 25px;
+		padding-right: 25px;
+	}
+}
+
+@include media-breakpoint-down(sm) {
+	.promo-search-icon-outer {
+		width: 80%;
+		height: 80%;
+		top: 50%;
+		left: 50%;
+		transform: translate3d(-50%, -50%, 0);
+	}
+}
+
+@include media-breakpoint-up(sm) {
+	.promo-search-icon-outer {
+		position: absolute;
+		left: 0;
+		top: -6px;
+		bottom: -23px;
+	}
+	
+	.promo-search-main {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding-left: 20px;
+		max-width: 100%;
+		margin-right: 0;
+		text-align: left;
+		@include groupX(15px);
+	}
+}
+
+@include media-breakpoint-between(sm, md) {
+  .promo-search-title {
+		font-size: 16px;
+	}
+}
+
+@include media-breakpoint-up(md) {
+  .promo-search {
+		padding: 20px;
+	}
+
+	.promo-search-main {
+		padding-left: 90px;
+	}
+}
+
+@include media-breakpoint-up(lg) {
+	.promo-search-main {
+		padding-left: 105px;
+	} 
+}
+
+@include media-breakpoint-up(xl) {
+  .promo-search {
+		padding: 30px;
+	}
+
+	.promo-search-main {
+		padding-left: 125px;
+	}
+} 

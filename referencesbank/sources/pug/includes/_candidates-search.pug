@@ -1,0 +1,19 @@
+form.form-layout-search.form-lg
+	.form-wrap.form-wrap-icon
+		input#form-name.form-input(type='text' name='name' data-constraints='@Required')
+		label.form-label(for='form-name') By Name
+		span.icon.fl-bigmug-line-search74
+
+	.form-wrap.form-wrap-icon.form-wrap-select
+		// Select 2
+		select.form-input.select#form-region(data-placeholder='All Regions' name='region' data-minimum-results-for-search='Infinity' data-constraints='@Selected')
+			option(label='All Regions')
+			option(value='1') Seattle
+			option(value='2') Miami
+			option(value='3') Chicago
+
+		span.icon.fl-bigmug-line-big104
+
+
+	.form-wrap.form-wrap-button
+		button.btn.btn-lg.btn-primary(type='submit') Search

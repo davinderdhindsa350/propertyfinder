@@ -1,0 +1,76 @@
+extends  ../_skeleton
+
+block variables
+	- var activeCategory = 'pages'
+	- var pageName = 'Buttons'
+
+block page 
+	// Page Header
+	include ../sections/_header-classic
+
+	+breadcrumbs({
+		category: activeCategory,
+		path: [pageName],
+		img: 'bg-image-9'
+	}).breadcrumbs-custom-overlay-2
+
+	// Button Sizes
+	section.section.section-md.text-center
+		.container
+			h2 Buttons
+			h5.text-gray-500: span(style='max-width: 570px;') Easily insert buttons and call-to-actions in any page, use amazing custom options to spice up your pages.
+		.container
+			h4 Button Sizes
+			p 4 different sizes: super, large, default and small.
+			.group-xl.group-middle
+				.btn.btn-xl.btn-primary.btn-anorak Super Size
+				.btn.btn-lg.btn-primary.btn-anorak Large size
+				.btn.btn-primary.btn-anorak Default size
+				.btn.btn-sm.btn-primary.btn-anorak Small size
+
+	hr
+
+	// Button Shapes
+	section.section.section-md.text-center
+		.container
+			h4 Button Shapes
+			p 3 different shapes: default, round, and circle.
+			.group-xl.group-middle
+				.btn.btn-primary.btn-anorak Default
+				.btn.btn-primary.btn-round.btn-anorak Round
+				.btn.btn-primary.btn-circle.btn-anorak Circle
+
+	hr
+
+	// Buttons with Icons
+	section.section.section-md.text-center
+		.container
+			h4 Buttons with Icons
+			p Buttons are fully integrated with 900+ icons.
+			.group-xl.group-middle
+				.btn.btn-icon.btn-icon-right.btn-primary.btn-anorak
+					span.icon.mdi.mdi-account-outline
+					| Icon right
+				.btn.btn-icon.btn-icon-left.btn-primary.btn-anorak
+					span.icon.mdi.mdi-information-outline
+					| Icon left
+				.btn.btn-icon.btn-icon-right.btn-default-outline.btn-anorak
+					span.icon.mdi.mdi-heart-outline
+					| Icon right
+				.btn.btn-icon.btn-icon-left.btn-default-outline.btn-anorak
+					span.icon.mdi.mdi-information-outline
+					| Icon left
+
+	hr
+
+	// Buttons with Shadow
+	section.section.section-md.text-center
+		.container
+			h4 Buttons with Shadow
+			p Enhance your buttons with a shadow effect.
+			.group-xl.group-middle
+				.btn.btn-primary.btn-shadow.btn-anorak Shadow
+				.btn.btn-default-outline.btn-shadow.btn-anorak Shadow
+
+	// Page Footer
+	include ../sections/_footer-classic

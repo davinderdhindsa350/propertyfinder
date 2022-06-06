@@ -1,0 +1,141 @@
+extends  ../_skeleton
+
+//- Includes
+include ../components/_ui-inline-subscribe-form
+
+block variables
+	- var activeCategory = 'pages'
+	- var pageName = 'Forms'
+
+block page 
+	// Page Header
+	include ../sections/_header-classic
+
+	+breadcrumbs({
+		category: activeCategory,
+		path: [pageName],
+		img: 'bg-image-9'
+	}).breadcrumbs-custom-overlay-2
+
+	// Forms
+	section.section.section-md.text-center
+		.container.text-center
+			h2 Forms
+			h5.text-gray-500: span(style='max-width: 670px;') With forms you can get almost any kind of information from your visitors, who will definitely appreciate this attractive element.
+		.container
+			.block-1
+				h4 Login form
+				.group-justify
+					a.btn.btn-sm.btn-facebook.btn-icon.btn-icon-left(href='#')
+						span.icon.fa.fa-facebook
+						| Facebook
+					a.btn.btn-sm.btn-twitter.btn-icon.btn-icon-left(href='#')
+						span.icon.fa.fa-twitter
+						| Twitter
+					a.btn.btn-sm.btn-google.btn-icon.btn-icon-left(href='#')
+						span.icon.fa.fa-google-plus
+						| Google+
+				.text-decoration-lines
+					span.text-decoration-lines-content or
+
+				// RD Mailform
+				form.rd-form.rd-mailform.form-centered.form-filled
+					.form-wrap
+						input#login-email.form-input(type='email' name='email' data-constraints='@Email @Required')
+						label.form-label(for='login-email') E-mail
+
+					.form-wrap
+						input#login-password.form-input(type='password' name='password' data-constraints='@Required')
+						label.form-label(for='login-password') Password
+
+					.form-wrap
+						label.checkbox-inline
+							input(name='checkbox-1' value='checkbox-1' type='checkbox' checked)
+							| Remember Me
+					.row.row-15.row-x-14
+						.col-sm-6: button.btn.btn-block.btn-primary(type='submit') Login
+						.col-sm-6: button.btn.btn-block.btn-default-outline(type='submit') Create an Account
+
+	// Subscribe Parallax
+	include ../sections/_section-parallax-subscribe
+
+	// Contact us
+	section.section.section-md
+		.container
+			h4 Contact us
+			// RD Mailform
+			form.rd-mailform.form-lg(data-form-output="form-output-global", data-form-type='contact', method='post', action='bat/rd-mailform.php')
+				.row.row-30
+					.col-lg-4
+						.form-wrap
+							label.form-label(for="contact-name") Enter Your Name
+							input#contact-name.form-input(type="text" name="name" data-constraints='@Required')
+
+					.col-lg-4
+						.form-wrap
+							label.form-label(for="contact-email") E-mail
+							input#contact-email.form-input(type="email" name="email" data-constraints='@Required @Email')
+
+					.col-lg-4
+						.form-wrap
+							label.form-label(for="contact-phone") Phone
+							input#contact-phone.form-input(type="text" name="phone" data-constraints='@PhoneNumber')
+
+					.col-12
+						.form-wrap
+							label.form-label(for="contact-message") Your Message
+							textarea#contact-message.form-input(name="message" data-constraints='@Required')
+
+					.col-12
+						button.btn.btn-primary(type='submit') Send Message
+
+	hr
+
+	// Contact Us
+	section.section.section-md.bg-gray-100
+		.container
+			h4 Contact us (with reCAPTCHA)
+			// RD Mailform
+			form.rd-mailform.form-lg(data-form-output="form-output-global", data-form-type='contact', method='post', action='bat/rd-mailform.php')
+				.row.row-30.align-items-center
+					.col-lg-4
+						.form-wrap
+							label.form-label(for="contact-2-name") Enter Your Name
+							input#contact-2-name.form-input(type="text" name="name" data-constraints='@Required')
+
+					.col-lg-4
+						.form-wrap
+							label.form-label(for="contact-2-email") E-mail
+							input#contact-2-email.form-input(type="email" name="email" data-constraints='@Required @Email')
+
+					.col-lg-4
+						.form-wrap
+							label.form-label(for="contact-2-phone") Phone
+							input#contact-2-phone.form-input(type="text" name="phone" data-constraints='@PhoneNumber')
+
+					.col-12
+						.form-wrap
+							label.form-label(for="contact-2-message") Your Message
+							textarea#contact-2-message.form-input(name="message" data-constraints='@Required')
+
+					.col-md-7
+						.form-wrap.form-validation-left
+							// Google captcha
+							.recaptcha#captcha1(data-sitekey='6LfZlSETAAAAAC5VW4R4tQP8Am_to4bM3dddxkEt')
+
+					.col-md-5.text-md-end
+						button.btn.btn-primary(type='submit') Send Message
+
+	// Page Footer
+	include ../sections/_footer-classic
+
+	.modal.modal-tip.fade#forms-modal-tip
+		.modal-dialog(role='document')
+			.modal-content
+				.modal-header
+					h5 Subscribe form tip
+					button.btn-close(type='button', data-bs-dismiss='modal', aria-label='Close'): span(aria-hidden='true')
+				.modal-body
+					p Subscribe form works as an e-mail newsletter.
+					p To activate such form with an enabled #[strong MailChimp] service, replace the #[code .rd-mailform] class with #[code .mailchimp-mailform] and the form's action with MailChimp subscription URL.
+					p To activate the #[strong Campaign Monitor] service, you need to replace the form’s [#code.rd-mailform] class with #[code .campaign-mailform] and copy the form's action and the name of the input field from the form generated by Campaign Monitor service.

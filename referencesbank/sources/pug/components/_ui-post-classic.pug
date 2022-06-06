@@ -1,0 +1,16 @@
+mixin post-classic(obj)
+	article.post-classic&attributes(attributes)
+		a.post-classic-media(href=obj.link ? obj.link : links.post)
+			+img(obj.img).post-classic-image
+		h4.post-classic-title: a(href=obj.link ? obj.link : links.post)=obj.title
+		time.post-classic-time(datetime='2021')=obj.time
+		.post-classic-text
+			block
+		ul.post-classic-meta
+			li: a(href=obj.link ? obj.link : links.post) 
+				span.icon.mdi.mdi-comment-outline
+				span 3 Comments
+			li: a(href='#')
+				span.icon.mdi.mdi-thumb-up-outline
+				span=obj.likes ? obj.likes : '30 Likes'
+			

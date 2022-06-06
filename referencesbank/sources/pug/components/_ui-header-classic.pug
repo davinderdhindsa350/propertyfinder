@@ -1,0 +1,91 @@
+mixin header-classic(obj)
+	// RD Navbar
+	.rd-navbar-wrap&attributes(attributes)
+		nav.rd-navbar.rd-navbar-classic(
+		data-layout=                'rd-navbar-fixed'
+		data-sm-layout=             'rd-navbar-fixed'
+		data-md-layout=             'rd-navbar-fixed'
+		data-md-device-layout=      'rd-navbar-fixed'
+		data-lg-layout=             'rd-navbar-static'
+		data-lg-device-layout=      'rd-navbar-fixed'
+		data-xl-layout=             'rd-navbar-static'
+		data-xl-device-layout=      'rd-navbar-static'
+		data-xxl-layout=            'rd-navbar-static'
+		data-xxl-device-layout=     'rd-navbar-static'
+		data-lg-stick-up-offset=    '46px'
+		data-xl-stick-up-offset=    '46px'
+		data-xxl-stick-up-offset=   '46px'
+		data-lg-stick-up=           'true'
+		data-xl-stick-up=           'true'
+		data-xxl-stick-up=          'true')
+			.rd-navbar-main-outer
+				.rd-navbar-main
+					// RD Navbar Panel
+					.rd-navbar-panel
+						// RD Navbar Toggle
+						button.rd-navbar-toggle(data-rd-navbar-toggle='.rd-navbar-nav-wrap'): span
+
+						// RD Navbar Brand
+						.rd-navbar-brand
+							+logo
+
+					.rd-navbar-main-element
+						.rd-navbar-nav-wrap
+							include ../includes/_navigation
+
+					.rd-navbar-aside
+						.rd-navbar-aside-item
+							button.btn.btn-xs.btn-primary-outline.btn-icon.btn-icon-left.btn-anorak.rd-navbar-popup-toggle(data-rd-navbar-toggle='#rd-navbar-register')
+								span.icon.mdi.mdi-account
+								| Sign Up
+
+							.rd-navbar-popup.bg-gray-100(id='rd-navbar-register')
+								h5.rd-navbar-popup-title Sign Up
+								form.rd-form.rd-mailform.form-compact(data-form-output="form-output-global", data-form-type='contact', method='post', action='bat/rd-mailform.php')
+									.form-wrap
+										input.form-input(id='rd-navbar-register-name' type='text' name='username' data-constraints='@Required')
+										label.form-label(for='rd-navbar-register-name') Username
+
+									.form-wrap
+										input.form-input(id='rd-navbar-register-email' type='email' name='email' data-constraints='@Email @Required')
+										label.form-label(for='rd-navbar-register-email') E-mail
+
+									.form-wrap
+										input.form-input(id='rd-navbar-register-password' type='password' name='password' data-constraints='@Required')
+										label.form-label(for='rd-navbar-register-password') Password
+
+									.form-wrap
+										input.form-input(id='rd-navbar-register-password-confirm' type='password' name='password-confirm' data-constraints='@Required')
+										label.form-label(for='rd-navbar-register-password-confirm') Confirm Password 
+
+									.form-wrap
+										button.btn.btn-block.btn-primary.btn-anorak(type='submit') Create an Account
+
+									.form-wrap.form-wrap-ally
+										.text-decoration-lines.rd-navbar-popup-title
+											span.text-decoration-lines-content or enter with
+
+									.form-wrap.form-wrap-ally
+										.btn-group
+											a.btn.btn-facebook.btn-icon.btn-icon-only.btn-winona(href='#' aria-label='Facebook'): span.icon.mdi.mdi.mdi-facebook
+											a.btn.btn-twitter.btn-icon.btn-icon-only.btn-winona(href='#' aria-label='Twitter'): span.icon.mdi.mdi-twitter
+											a.btn.btn-google.btn-icon.btn-icon-only.btn-winona(href='#' aria-label='Google+'): span.icon.mdi.mdi-google
+
+						.rd-navbar-aside-item
+							button.btn.btn-xs.btn-primary.btn-icon.btn-icon-left.btn-anorak.rd-navbar-popup-toggle(data-rd-navbar-toggle='#rd-navbar-login')
+								span.icon.mdi.mdi-import
+								| Login
+
+							.rd-navbar-popup.bg-gray-100(id='rd-navbar-login')
+								h5.rd-navbar-popup-title Login
+								form.rd-form.form-compact
+									.form-wrap
+										input.form-input(id='rd-navbar-login-email' type='email' name='email' data-constraints='@Email @Required')
+										label.form-label(for='rd-navbar-login-email') E-mail
+
+									.form-wrap
+										input.form-input(id='rd-navbar-login-password' type='password' name='password' data-constraints='@Required')
+										label.form-label(for='rd-navbar-login-password') Password
+
+									.form-wrap
+										button.btn.btn-block.btn-primary.btn-anorak(type='submit') Login

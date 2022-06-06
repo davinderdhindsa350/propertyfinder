@@ -1,0 +1,163 @@
+extends  ../_skeleton
+
+block variables
+	- var activeCategory = 'for-employers'
+	- var pageName = 'Post a Job'
+
+block page 
+	// Page Header
+	include ../sections/_header-classic
+
+	+breadcrumbs({
+		category: activeCategory,
+		path: [pageName],
+		img: 'bg-image-8'
+	}).breadcrumbs-custom-overlay-2
+
+	section.section.section-md
+		.container
+			.alert.alert-info.alert-type-1(role='alert'): .alert-inner
+				.alert-main
+					p Have an account? If you don’t have an account you can create one below by entering your email address. A password will be automatically emailed to you.
+				.alert-aside
+					a.btn.btn-xs.btn-secondary.btn-icon.btn-icon-left(href='#')
+						span.icon.mdi.mdi-account-outline
+						| Sign Up
+
+			.block-form
+				form#post-a-job-form.rd-mailform(
+				data-form-output='form-output-global'
+				data-form-type='contact'
+				method='post'
+				action='bat/rd-mailform.php')
+
+
+				h4 General Information
+				hr
+				// RD Mailform
+				.rd-form.rd-mailform.form-lg
+					.row.row-40
+						.col-md-6
+							.form-wrap
+								label.form-label-outside(for='general-information-job-title') Job Title
+								.form-wrap-inner
+									input#general-information-job-title.form-input(form='post-a-job-form' type='text' name='job-title' data-constraints='@Required')
+									label.form-label(for='general-information-job-title') Enter Job Title
+
+						.col-md-6
+							.form-wrap
+								label.form-label-outside(for='general-information-email') Your Email
+								.form-wrap-inner
+									input#general-information-email.form-input(form='post-a-job-form' type='email' name='email' data-constraints='@Email @Required')
+									label.form-label(for='general-information-email') Enter Email
+
+						.col-md-6
+							.form-wrap
+								label.form-label-outside(for='general-information-job-type') Job Type
+								.form-wrap-inner
+									// Select 2
+									select.form-input.select#general-information-job-type(form='post-a-job-form' data-placeholder='Select Job Type' name='job-type' data-minimum-results-for-search="Infinity" data-constraints='@Selected')
+										option(label='Select Job Type')
+										option(value='1') Full Time
+										option(value='2') Part Time
+
+						.col-md-6
+							.form-wrap
+								label.form-label-outside(for='general-information-location') Location
+								.form-wrap-inner
+									input#general-information-location.form-input(form='post-a-job-form' type='text' name='location' data-constraints='@Required')
+									label.form-label(for='general-information-location') e.g. “New York”
+
+						.col-md-6
+							.form-wrap
+								label.form-label-outside(for='general-information-salary') Salary
+								.form-wrap-inner
+									input#general-information-salary.form-input(form='post-a-job-form' type='text' name='salary' data-constraints='@Required')
+									label.form-label(for='general-information-salary') e.g. $20000
+
+						.col-md-6
+							.form-wrap
+								label.form-label-outside(for='general-information-job-category') Job Category
+								.form-wrap-inner
+									// Select 2
+									select.form-input.select#general-information-job-category(form='post-a-job-form' data-placeholder='Choose a Category' name='job-category' data-minimum-results-for-search="Infinity" data-constraints='@Selected')
+										option(label='Choose a Category')
+										option(value='1') Web Design
+										option(value='2') Development
+										option(value='3') Marketing
+						.col-md-6
+							.form-wrap
+								label.form-label-outside(for='general-information-tags') Job Tags  (optional)
+								.form-wrap-inner
+									input#general-information-tags.form-input(form='post-a-job-form' type='text' name='tags')
+									label.form-label(for='general-information-tags') e.g. “Web Designer”
+
+						.col-md-6
+							.form-wrap
+								label.form-label-outside(for='general-information-url') URL(s) (optional)
+								.form-wrap-inner
+									input#general-information-url.form-input(form='post-a-job-form' type='text' name='url')
+									label.form-label(for='general-information-url') Enter URL
+
+						.col-12
+							.form-wrap
+								label.form-label-outside(for='general-information-description') Description
+								.form-wrap-inner
+									label.form-label(for='general-information-description') Please Provide Full Job Description
+									textarea#general-information-description.form-input(form='post-a-job-form' name='description' data-constraints='@Required')
+
+			.block-form
+				h4 Company Details
+				hr
+				// RD Mailform
+				.rd-form.rd-mailform.form-lg
+					.row.row-40
+						.col-md-6
+							.form-wrap
+								label.form-label-outside(for='company-details-name') Company Name
+								.form-wrap-inner
+									input#company-details-name.form-input(form='post-a-job-form' type='text' name='name' data-constraints='@Required')
+									label.form-label(for='company-details-name') Enter Your Company Name
+
+						.col-md-6
+							.form-wrap
+								label.form-label-outside(for='company-details-tagline') Tagline
+								.form-wrap-inner
+									input#company-details-tagline.form-input(form='post-a-job-form' type='text' name='tagline' data-constraints='@Required')
+									label.form-label(for='company-details-tagline') e.g. “Web Studio”
+
+						.col-lg-6
+							.form-wrap
+								label.form-label-outside(for='company-details-website') Website Address
+								.form-wrap-inner
+									input#company-details-website.form-input(form='post-a-job-form' type='text' name='website' data-constraints='@Required')
+									label.form-label(for='company-details-website') http://
+
+						.col-lg-6
+							.form-wrap
+								label.form-label-outside(for='company-details-fb-name') Facebook Username
+								.form-wrap-inner
+									input#company-details-fb-name.form-input(form='post-a-job-form' type='text' name='fb-name')
+									label.form-label(for='company-details-fb-name') Name of Your Company’s Facebook Page (optional)
+
+						.col-12
+							.form-wrap
+								label.form-label-outside(for='company-details-description') Description
+								.form-wrap-inner
+									label.form-label(for='company-details-description') Company Information
+									textarea#company-details-description.form-input(form='post-a-job-form' name='description' data-constraints='@Required')
+
+			.block-form
+				h4 Add Files
+				hr
+				label.btn.btn-sm.btn-primary-outline.btn-icon.btn-icon-left
+					input(type='file' name='logo' form='post-a-job-form')
+					span.icon.mdi.mdi-account-box
+					| Add Your logo
+
+			.block-form
+				hr
+				button.btn.btn-secondary(type='submit' form='post-a-job-form') Preview
+
+	// Page Footer
+	include ../sections/_footer-classic

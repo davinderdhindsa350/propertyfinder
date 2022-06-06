@@ -1,0 +1,66 @@
+extends  ../_skeleton
+
+block variables
+	- var activeCategory = 'pages'
+	- var pageName = 'About Us'
+
+block page 
+	// Page Header
+	include ../sections/_header-classic
+
+	+breadcrumbs({
+		category: activeCategory,
+		path: [pageName],
+		img: 'bg-image-9'
+	}).breadcrumbs-custom-overlay-2
+
+	// Welcome to CareerVolt
+	section.section.section-md
+		.container 
+			.row.row-30
+				.col-lg-6.height-fill
+					figure.figure-responsive
+						+img('about-us-1-573x368')
+					
+				.col-lg-6.height-fill
+					article.box-info
+						h3 Welcome to CareerVolt
+						p As the world's #1 job site, with over 200 million unique visitors every month from over 60 different countries, CareerVolt has become the catalyst for putting the world to work.
+						p We are intensely passionate about delivering the right fit for every hire. Our friendly team helps companies of all sizes hire the best talent and offers the best opportunity for job seekers to get hired. When you register and upload a resume you can be sure CareerVolt has just the job for you, your skills, and knowledge.
+						
+		.container.offset-top-1.text-center
+			h3 Hundreds of Jobs Around the World
+			p Using CareerVolt you can find the job of your dreams in seconds.
+			include ../includes/_row-boxes-line
+						
+	// Counters
+	include ../sections/_section-counters
+		
+	section.section.section-md.text-center
+		.container
+			h3 Companies We've Helped
+			// Owl Carousel
+			.owl-carousel.owl-carousel-stretch(
+			data-autoplay='true'
+			data-autoplay-speed='3500'
+			data-items='1'
+			data-sm-items='2'
+			data-md-items='3'
+			data-lg-items='4'
+			data-dots='true' 
+			data-dots-each='2' 
+			data-nav='false' 
+			data-stage-padding='2px' 
+			data-loop='true'
+			data-margin='30'
+			data-mouse-drag='false')
+				a.link-corporate(href='#'): +img('brand-1-183x44.png')
+				a.link-corporate(href='#'): +img('brand-2-118x82.png')
+				a.link-corporate(href='#'): +img('brand-3-137x39.png')
+				a.link-corporate(href='#'): +img('brand-4-133x77.png')
+				
+	// CTA
+	include ../sections/_section-cta-app
+					
+	// Page Footer
+	include ../sections/_footer-classic

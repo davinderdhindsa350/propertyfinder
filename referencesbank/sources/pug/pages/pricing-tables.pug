@@ -1,0 +1,44 @@
+extends  ../_skeleton
+
+//- Includes
+
+
+block variables
+	- var activeCategory = 'pages'
+	- var pageName = 'Pricing Tables'
+
+block page 
+	// Page Header
+	include ../sections/_header-classic
+
+	+breadcrumbs({
+		category: activeCategory,
+		path: [pageName],
+		img: 'bg-image-5'
+	}).breadcrumbs-custom-overlay-3
+
+
+	// Pricing Tables
+	section.section.section-md
+		.container
+			h3.text-center #1
+			include ../includes/_row-pricing-table-classic
+
+
+	// Pricing tables #2
+	+parallax({
+		img: 'parallax-2'
+	}).section-md.bg-gray-700.bg-overlay-2
+		.container
+			h3.text-center #2
+			include ../includes/_pricing-table-creative
+
+	// Pricing tables #3
+	section.section.section-md
+		.container
+			h3.text-center #3
+			include ../includes/_pricing-table-modern
+
+
+	// Page Footer
+	include ../sections/_footer-classic

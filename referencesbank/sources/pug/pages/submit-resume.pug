@@ -1,0 +1,192 @@
+extends  ../_skeleton
+
+block variables
+	- var activeCategory = 'for-candidates'
+	- var pageName = 'Submit Resume'
+
+block page
+	// Page Header
+	include ../sections/_header-classic
+
+	+breadcrumbs({
+	category: activeCategory,
+	path: [pageName],
+	img: 'bg-image-8'
+	}).breadcrumbs-custom-overlay-2
+
+	section.section.section-md
+		.container
+			.alert.alert-info.alert-type-1(role='alert'): .alert-inner
+				.alert-main
+					p Have an account? If you don’t have an account you can create one below by entering your email address. A password will be automatically emailed to you.
+				.alert-aside
+					a.btn.btn-xs.btn-secondary.btn-icon.btn-icon-left(href='#')
+						span.icon.mdi.mdi-account-outline
+						| Sign Up
+
+			.block-form
+				form#submit-resume-form.rd-mailform(
+				data-form-output='form-output-global'
+				data-form-type='contact'
+				method='post'
+				action='bat/rd-mailform.php')
+
+
+				h4 General Information
+				hr
+				// RD Mailform
+				.rd-form.rd-mailform.form-lg
+					.row.row-40
+						.col-md-6
+							.form-wrap
+								label.form-label-outside(for='general-information-name') Your Name
+								.form-wrap-inner
+									input#general-information-name.form-input(form='submit-resume-form' type='text' name='name' data-constraints='@Required')
+									label.form-label(for='general-information-name') Enter Job Title
+
+						.col-md-6
+							.form-wrap
+								label.form-label-outside(for='general-information-email') Your Email
+								.form-wrap-inner
+									input#general-information-email.form-input(form='submit-resume-form' type='email' name='email' data-constraints='@Email @Required')
+									label.form-label(for='general-information-email') info@demolink.org
+
+						.col-md-6
+							.form-wrap
+								label.form-label-outside(for='general-information-profession') Profession
+								.form-wrap-inner
+									input#general-information-profession.form-input(form='submit-resume-form' type='text' name='profession' data-constraints='@Required')
+									label.form-label(for='general-information-profession') e.g. “Web Designer”
+
+						.col-md-6
+							.form-wrap
+								label.form-label-outside(for='general-information-location') Location
+								.form-wrap-inner
+									input#general-information-location.form-input(form='submit-resume-form' type='text' name='location' data-constraints='@Required')
+									label.form-label(for='general-information-location') e.g. “New York”
+
+						.col-md-6
+							.form-wrap
+								label.form-label-outside(for='general-information-rate') Minimum Rate/h ($)
+								.form-wrap-inner
+									input#general-information-rate.form-input(form='submit-resume-form' type='text' name='rate' data-constraints='@Required')
+									label.form-label(for='general-information-rate') e.g. 20
+
+						.col-md-6
+							.form-wrap
+								label.form-label-outside(for='general-information-job-category') Resume Category
+								.form-wrap-inner
+									// Select 2
+									select.form-input.select#general-information-job-category(form='submit-resume-form' data-placeholder='Choose a Category' name='resume-category' data-minimum-results-for-search="Infinity" data-constraints='@Selected')
+										option(label='Choose a Category')
+										option(value='1') Web Design
+										option(value='2') Development
+										option(value='3') Marketing
+
+						.col-md-6
+							.form-wrap
+								label.form-label-outside(for='general-information-skills') Skills (optional)
+								.form-wrap-inner
+									input#general-information-skills.form-input(form='submit-resume-form' type='text' name='skills')
+									label.form-label(for='general-information-skills') e.g. “Web Designer”
+
+						.col-md-6
+							.form-wrap
+								label.form-label-outside(for='general-information-url') URL(s) (optional)
+								.form-wrap-inner
+									input#general-information-url.form-input(form='submit-resume-form' type='text' name='url')
+									label.form-label(for='general-information-url') Enter URL
+
+						.col-12
+							.form-wrap
+								label.form-label-outside(for='general-information-resume-content') Resume Content
+								.form-wrap-inner
+									label.form-label(for='general-information-resume-content') Please Enter the Full Text of Your Resume
+									textarea#general-information-resume-content.form-input(form='submit-resume-form' name='resume-content' data-constraints='@Required')
+
+			.block-form
+				h4 Education
+				hr
+				// RD Mailform
+				.rd-form.rd-mailform.form-lg.form-corporate
+					.form-wrap
+						label.form-label-outside(for='education-school-name') School Name
+						.form-wrap-inner
+							input#education-school-name.form-input(form='submit-resume-form' type='text' name='school-name' data-constraints='@Required')
+							label.form-label(for='education-school-name') Text
+
+					.form-wrap
+						label.form-label-outside(for='education-qualification') Qualification(s)
+						.form-wrap-inner
+							input#education-qualification.form-input(form='submit-resume-form' type='text' name='qualification' data-constraints='@Required')
+							label.form-label(for='education-qualification') Text
+
+					.form-wrap
+						label.form-label-outside(for='education-period') Start\End Date
+						.form-wrap-inner
+							input#education-period.form-input(form='submit-resume-form' type='text' name='period' data-constraints='@Required')
+							label.form-label(for='education-period') e.g. 2007-2009
+
+					.form-wrap
+						label.form-label-outside(for='education-notes') Notes (optional)
+						.form-wrap-inner
+							label.form-label(for='education-notes') Text
+							textarea#education-notes.form-input(form='submit-resume-form' name='notes' data-constraints='@Required')
+
+			button.btn.btn-sm.btn-primary()
+				span.icon.mdi.mdi-plus
+				| Add education
+
+			.block-form
+				h4 Experience
+				hr
+				// RD Mailform
+				.rd-form.rd-mailform.form-lg.form-corporate
+
+					.form-wrap
+						label.form-label-outside(for='experience-employer') Employer
+						.form-wrap-inner
+							input#experience-employer.form-input(form='submit-resume-form' type='text' name='employer' data-constraints='@Required')
+							label.form-label(for='experience-employer') Employer Name
+
+					.form-wrap
+						label.form-label-outside(for='experience-job-title') Job Title
+						.form-wrap-inner
+							input#experience-job-title.form-input(form='submit-resume-form' type='text' name='job-title' data-constraints='@Required')
+							label.form-label(for='experience-job-title') Text
+
+					.form-wrap
+						label.form-label-outside(for='experience-period') Start\End Date
+						.form-wrap-inner
+							input#experience-period.form-input(form='submit-resume-form' type='text' name='period' data-constraints='@Required')
+							label.form-label(for='experience-period') e.g. 2007-2009
+
+					.form-wrap
+						label.form-label-outside(for='experience-notes') Notes (optional)
+						.form-wrap-inner
+							label.form-label(for='experience-notes') Text
+							textarea#experience-notes.form-input(form='submit-resume-form' name='notes' data-constraints='@Required')
+
+			button.btn.btn-sm.btn-primary()
+				span.icon.mdi.mdi-plus
+				| Add experience
+
+			.block-form
+				h4 Add Files
+				hr
+				.group
+					label.btn.btn-sm.btn-primary-outline.btn-icon.btn-icon-left
+						input(type='file' name='photo' form='submit-resume-form')
+						span.icon.mdi.mdi-account-box
+						| Add Your Photo
+
+					label.btn.btn-sm.btn-primary.btn-icon.btn-icon-left
+						input(type='file' name='resume-file' form='submit-resume-form')
+						span.icon.mdi.mdi-attachment(style='transform: rotate(270deg); transform-origin: 37% 27%;')
+						| Add Resume File
+
+				hr
+				button.btn.btn-lg.btn-secondary(type='submit' form='submit-resume-form') Preview
+
+	// Page Footer
+	include ../sections/_footer-classic

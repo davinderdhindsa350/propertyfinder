@@ -1,0 +1,116 @@
+/*
+*
+* Pagination custom
+*/
+
+.pagination {
+	display: inline-flex;
+	flex-wrap: wrap;
+	font-size: 0;
+	line-height: 0;
+	@include group(6px);
+}
+
+.page-item {
+	display: inline-flex;
+	vertical-align: middle;
+	text-align: center;
+	font-family: $font-family-sec;
+	font-size: $pagination-font-size;
+	font-weight: 500;
+	letter-spacing: .05em;
+	text-transform: uppercase;
+}
+
+// Base styles
+.page-link {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-width: $pagination-padding-y*2 + $pagination-border-width*2 + $pagination-line-height;
+	padding: $pagination-padding-y $pagination-padding-x;
+	border: $pagination-border-width solid $pagination-border-color;
+	line-height: ($pagination-line-height / $pagination-font-size);
+	background-color: $pagination-bg;
+	color: $pagination-color;
+	transition: .15s;
+}
+
+// Hover & Focus & Active State
+.page-link {
+	&:hover,
+	&:focus,
+	&:active {
+		color: $pagination-hover-color;
+		background-color: $pagination-hover-bg;
+		border-color: $pagination-hover-border-color;
+	}
+}
+
+// Active State
+.page-item.active > .page-link {
+	&,
+	&:hover,
+	&:focus,
+	&:active {
+		color: $pagination-active-color;
+		background-color: $pagination-active-bg;
+		border-color: $pagination-active-border-color;
+	}
+}
+
+// Disabled State
+.page-item.disabled > .page-link {
+	&,
+	&:hover,
+	&:focus,
+	&:active {
+		color: $pagination-disabled-color;
+		background-color: $pagination-disabled-bg;
+		border-color: $pagination-disabled-border-color;
+	}
+}
+
+.page-item-control {
+	.page-link {
+		padding-left: 16px;
+		padding-right: 16px;
+	}
+}
+
+* + .pagination-outer { margin-top: 30px; }
+
+@include media-breakpoint-down(md) {
+	.page-item-control {
+		font-size: 0;
+		
+		.page-link {
+			padding-left: 10px;
+			padding-right: 10px;
+		}
+
+		.page-link::before {
+			font-family: $mdi;
+			font-size: 18px;
+			line-height: 1;
+		}
+	}
+	
+	// Prev control
+	.page-item-control:first-child {
+		.page-link::before {
+			content: '\f237';
+		}
+	}
+
+	// Next control
+	.page-item-control:last-child {
+		.page-link::before {
+			content: '\f238';
+		}
+	}
+}
+
+@include media-breakpoint-up(md) {
+	* + .pagination-outer { margin-top: 50px; } 
+}

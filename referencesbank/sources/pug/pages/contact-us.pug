@@ -1,0 +1,92 @@
+extends  ../_skeleton
+
+block variables
+	- var activeCategory = 'pages'
+	- var pageName = 'Contact Us'
+
+block page 
+	// Page Header
+	include ../sections/_header-classic
+
+	+breadcrumbs({
+		category: activeCategory,
+		path: [pageName],
+		img: 'bg-image-4'
+	}).breadcrumbs-custom-overlay-3
+
+	// Mailform
+	section.section.section-md
+		.container
+			.row.row-50
+				.col-md-10.col-lg-8.col-xl-6
+					h4 Contact details
+					p(style='letter-spacing: .05em;') You can contact us any way that is convenient for you. We are available 24/7 via fax, email or telephone. You can also visit our office personally.
+
+
+			.layout-bordered
+				.layout-bordered-item: .layout-bordered-item-inner
+					.unit.unit-spacing-sm.flex-md-column
+						.unit-left.icon.icon-xl.fl-bigmug-line-cellphone55.text-primary
+						.unit-body
+							p.heading-7 Phones
+							ul.list-0
+								li: dl.list-terms-inline
+										dt Phone 01
+										dd: a(href='tel:#') +1 (409) 987–5874
+
+								li: dl.list-terms-inline
+										dt Phone 02
+										dd: a(href='tel:#') +1 (409) 987–5874
+
+
+				.layout-bordered-item: .layout-bordered-item-inner
+					.unit.unit-spacing-sm.flex-md-column
+						.unit-left.icon.icon-xl.fl-bigmug-line-big104.text-primary
+						.unit-body
+							p.heading-7 Address
+							ul.list-0
+								li: a.list-default(href='#') USA, 6036 Richmond hwy., #[br] Alexandria,  VA, 2230
+
+				.layout-bordered-item: .layout-bordered-item-inner
+					.unit.unit-spacing-sm.flex-md-column
+						.unit-left.icon.icon-xlg.fl-bigmug-line-email64.text-primary
+						.unit-body
+							p.heading-7 E-mails
+							ul.list-0
+								li: a(href='mailto:#') Office@demolink.org
+								li: a(href='mailto:#') Support@demolink.org
+
+
+			.row
+				.col-12
+					h4 Get in touch with us
+					p(style='') Feel free to use the contact form below to contact us directly.
+
+					// RD Mailform
+					form.rd-mailform.form-lg(data-form-output="form-output-global", data-form-type='contact', method='post', action='bat/rd-mailform.php')
+						.row.row-30
+							.col-lg-4
+								.form-wrap
+									label.form-label(for="contact-name") Enter Your Name
+									input#contact-name.form-input(type="text" name="name" data-constraints='@Required')
+
+							.col-lg-4
+								.form-wrap
+									label.form-label(for="contact-email") E-mail
+									input#contact-email.form-input(type="email" name="email" data-constraints='@Required @Email')
+
+							.col-lg-4
+								.form-wrap
+									label.form-label(for="contact-phone") Phone
+									input#contact-phone.form-input(type="text" name="phone" data-constraints='@PhoneNumber')
+
+							.col-12
+								.form-wrap
+									label.form-label(for="contact-message") Your Message
+									textarea#contact-message.form-input(name="message" data-constraints='@Required')
+
+							.col-12
+								button.btn.btn-primary(type='submit') Send Message
+
+	// Page Footer
+	include ../sections/_footer-classic
